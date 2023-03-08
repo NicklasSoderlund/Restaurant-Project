@@ -1,0 +1,75 @@
+
+
+.contact {
+    width: 50%;
+    color: white;
+    background-color: black;
+
+    .colorClass {
+        color: #C67B47;
+    }
+
+    h3 {
+       
+    }
+
+    .contact__content__adress {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact__content__name {
+       
+    }
+    .contact__content__street {
+
+    }
+    .contact__content__phone {
+      
+    }
+
+    
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+
+        .form__content {
+            display: flex;
+           
+        }
+
+        .form__inputs {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            gap: 0.5em;
+        
+
+        }
+        input {
+            text-align: center;
+            padding: 0.5em;
+            background-color: black;
+            border: 1px solid #C67B47;
+            &::placeholder {
+                font-weight: bold;
+                color: white;
+              
+            }
+        }
+
+        textarea {
+            resize: none;
+            text-align: center;
+            background-color: black;
+            border: 1px solid #C67B47;
+            &::placeholder {
+                font-weight: bold;
+                color: white;
+                
+            }
+        }
+    }
+}
