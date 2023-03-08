@@ -1,6 +1,6 @@
 export function Booking() {
    
     return (
-        <div></div>
+        <div>Booking fungerar</div>
     )
 }

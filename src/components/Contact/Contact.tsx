@@ -1,6 +1,6 @@
 export function Contact() {
 
     return (
-        <div></div>
+        <div>Contact fungerar</div>
     )
 }
