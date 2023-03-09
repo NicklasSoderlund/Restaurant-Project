@@ -6,7 +6,7 @@ export const Footer = ()=> {
     return (
         <footer>
         <div>
-            <h4>&#169; Jucius Steaksar</h4>
+            <h4><i className="fa-regular fa-copyright"></i> Jucius Steaksar</h4>
         </div>
 <div className="links">
     <ul> <h5>Social Media</h5>
