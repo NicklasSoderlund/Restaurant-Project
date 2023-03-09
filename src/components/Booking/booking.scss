@@ -1,59 +1,46 @@
-body{
-  background-color: rgb(39, 39, 39);
-  color:white;}
-
-.booking-form {
-    font-family: 'geared-slab-regular', sans-serif;
+.Booking {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+    h2 {
+      color: #C67B47;
+    }
+    h3 {
+      color: #C67B47;
+    }
+}
+.FormContainer {
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-  
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-  
-    input {
-      font-size: 1rem;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 0.25rem;
-      background-color: #fff;
-      color: #000;
-  
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px #C67B47;
-      }
-    }
-  
-    select {
-      font-size: 1rem;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 0.25rem;
-      background-color: #fff;
-      color: #000;
-    }
-  
-    button {
-      font-size: 1rem;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 0.25rem;
-      background-color: #C67B47;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.2s;
-  
-      &:hover {
-        background-color: #9f563d;
-      }
-  
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px #fff;
-      }
-    }
+    color: #C67B47;
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      margin: 20px;
+          input {
+            background-color: lightgray;
+          }
   }
-  
+}
+button{
+  padding:8px 48px;
+  background-color: transparent;
+  border:2px solid #FFFFFF;
+  margin:0 5px 5px 0;
+  box-sizing: border-box;
+  font-weight:400;
+  color:#C67B47;
+  text-align:center;
+  }
+  button:hover{
+  color:#DDDDDD;
+  border-color:#DDDDDD;
+  cursor:pointer;
+  }

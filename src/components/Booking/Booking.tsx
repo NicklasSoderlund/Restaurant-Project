@@ -12,28 +12,33 @@ function BookingForm(props: BookingFormProps): JSX.Element {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle form submission here
   };
 
   return (
+    <section className='Booking'>
+      <h2>Book a table!</h2>
+      <h3>Please notice that we only offer two different sittings per day. </h3>
+    <div className='FormContainer'>
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
+      <label htmlFor="name">Namn:</label>
       <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
 
       <label htmlFor="email">Email:</label>
       <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-      <label htmlFor="date">Date:</label>
+      <label htmlFor="date">Datum:</label>
       <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} required />
 
-      <label htmlFor="time">Time:</label>
+      <label htmlFor="time">Tid:</label>
       <input type="time" id="time" value={time} onChange={(e) => setTime(e.target.value)} required />
 
-      <label htmlFor="numPeople">Number of people:</label>
+      <label htmlFor="numPeople">Antal gäster:</label>
       <input type="number" id="numPeople" value={numPeople} onChange={(e) => setNumPeople(Number(e.target.value))} required />
-
-      <button type="submit">Book table</button>
+      <br></br>
+      <button type="submit">Book a table</button>
     </form>
+    </div>
+    </section>
   );
 }
 
