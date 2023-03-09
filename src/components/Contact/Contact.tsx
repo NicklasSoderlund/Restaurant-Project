@@ -1,6 +1,8 @@
 import { Button } from '../styled/Button';
 import './contact.scss';
 
+
+
 export function Contact() {
 
     return (
@@ -8,16 +10,16 @@ export function Contact() {
 
         <div className='contact__content'>
 
-        <h3 className='colorClass'>Contact & Location</h3>
+        <h3 className='colorClass'>Contact and Location</h3>
             <div className="contact__content__adress">
                 <span className="contact__content__name, colorClass">Jucius Steaksar - New York City</span>
                 <span className="contact__content__street">20 Cherryblossom Lane </span>
                 <span className="contact__content__phone, colorClass">01287-100877</span>
             </div>
 
-            <div>
-                <Button color=''>Bajs</Button>
-                <Button color=''>Bajs</Button>
+            <div className='contact__buttons'>
+                <Button color='#C67B47' width='' textColor='black'>Directions</Button>
+                <Button color='' width='' textColor=''>Call</Button>
             </div>
 
             <form action="">
@@ -29,11 +31,11 @@ export function Contact() {
                 <input type="text" placeholder='Email'/>
                 <input type="text" placeholder='Phone'/>
                 </div>
-                <textarea name="" id="" cols={35} rows={7} placeholder="Type your message here"></textarea>
+                <textarea name="" id="" rows={8} placeholder="Type your message here"></textarea>
 
                 </div>
 
-                <Button color=''>Bajs</Button>
+              <div> <Button color='' width='11em' textColor=''>Submit</Button>  </div> 
 
             </form>
 
