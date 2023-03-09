@@ -2,13 +2,20 @@ import styled from 'styled-components';
 
 export interface IButtonProps {
     color:string;
+    width:string;
+    textColor:string;
 }
 export const Button = styled.button`
     background-color: ${(props:IButtonProps) => props.color || "black"};
-    color: white;
-    border-radius: 10px;
-    width:7em;
-    padding: 3px;
+    font-size: 1rem;
+    font-weight:bold;
+    color: ${(props:IButtonProps) => props.textColor || "white"};
+    border-radius: 20px;
+    width:${(props:IButtonProps) => props.width || "8em"};
+    padding: 7px;
     border: 2px solid #C67B47;
+    cursor: pointer;
+
+
     
 `;
