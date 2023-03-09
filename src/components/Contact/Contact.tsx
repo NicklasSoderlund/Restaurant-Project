@@ -5,6 +5,7 @@ import './contact.scss';
 
 export function Contact() {
 
+
     return (
         <section className="contact">   
 
