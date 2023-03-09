@@ -68,7 +68,7 @@ return <div>
         <h4>BEER:</h4>
             <ul>
                 <li><b>Budweiser:</b> A classic American lager with a smooth and crisp finish.</li>
-                <li><b>Stella Artois:</b>A Belgian pilsner with a light and refreshing taste.</li>
+                <li><b>Stella Artois:</b> A Belgian pilsner with a light and refreshing taste.</li>
                 <li><b>Lagunitas IPA:</b> A West Coast-style IPA with a hoppy and citrusy flavor.</li>
                 <li><b>Guinness Stout:</b> An Irish stout with a rich and creamy texture and notes of chocolate and coffee.</li>
             </ul>
@@ -76,22 +76,22 @@ return <div>
             <ul>
                 <li><b>Cabernet Sauvignon: </b> A full-bodied red wine with flavors of black currant, blackberry, and vanilla.</li>
                 <li><b>Chardonnay:</b> A medium to full-bodied white wine with flavors of green apple, citrus, and vanilla.</li>
-                <li><b>Pinot Noir:</b>A light to medium-bodied red wine with flavors of cherry, raspberry, and earthy notes.</li>
+                <li><b>Pinot Noir:</b> A light to medium-bodied red wine with flavors of cherry, raspberry, and earthy notes.</li>
                 <li><b>Sauvignon Blanc:</b> A crisp and refreshing white wine with flavors of green apple, grapefruit, and grassy notes.</li>
             </ul>
             <h4>COCKTAILS:</h4>
             <ul>
-                <li><b>Classic Martini:</b>Made with gin or vodka and a hint of dry vermouth, garnished with a lemon twist or olives.</li>
-                <li><b>Old Fashioned:</b>Bourbon whiskey muddled with sugar, bitters, and a splash of water, garnished with a cherry and orange slice.</li>
-                <li><b>Margarita:</b>Tequila, lime juice, and triple sec, served over ice and garnished with a salt rim and lime wedge.</li>
-                <li><b>Manhattan:</b>Rye whiskey, sweet vermouth, and bitters, garnished with a cherry.</li>
+                <li><b>Classic Martini:</b> Made with gin or vodka and a hint of dry vermouth, garnished with a lemon twist or olives.</li>
+                <li><b>Old Fashioned:</b> Bourbon whiskey muddled with sugar, bitters, and a splash of water, garnished with a cherry and orange slice.</li>
+                <li><b>Margarita:</b> Tequila, lime juice, and triple sec, served over ice and garnished with a salt rim and lime wedge.</li>
+                <li><b>Manhattan:</b> Rye whiskey, sweet vermouth, and bitters, garnished with a cherry.</li>
             </ul>
             <h4>NON-ALCOHOLIC DRINKS:</h4>
             <ul>
-                <li><b>Coke: </b>Classic cola with a refreshing and sweet taste.</li>
-                <li><b>Lemonade:</b>Freshly squeezed lemon juice, sugar, and water, served over ice.</li>
+                <li><b>Coke: </b> Classic cola with a refreshing and sweet taste.</li>
+                <li><b>Lemonade:</b> Freshly squeezed lemon juice, sugar, and water, served over ice.</li>
                 <li><b>Iced Tea: </b> Freshly brewed black tea served over ice with a slice of lemon.</li>
-                <li><b>Root Beer:</b>A classic soda with a rich and creamy flavor.</li>
+                <li><b>Root Beer:</b> A classic soda with a rich and creamy flavor.</li>
             </ul>
         </div>
         </div>
