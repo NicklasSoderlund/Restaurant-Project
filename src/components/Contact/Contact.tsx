@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Button } from '../styled/Button';
 import './contact.scss';
 

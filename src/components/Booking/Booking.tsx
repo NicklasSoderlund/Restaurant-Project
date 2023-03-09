@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { BookingsContext } from '../../App';
 import './booking.scss';
 
 interface BookingFormProps {}
@@ -9,6 +10,11 @@ function BookingForm(props: BookingFormProps): JSX.Element {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [numPeople, setNumPeople] = useState(1);
+
+  const bookings = useContext(BookingsContext)
+
+  console.log(bookings);
+
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
