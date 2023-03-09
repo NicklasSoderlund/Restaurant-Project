@@ -14,6 +14,7 @@ export const Button = styled.button`
     width:${(props:IButtonProps) => props.width || "8em"};
     padding: 7px;
     border: 2px solid #C67B47;
+    cursor: pointer;
 
     
 `;

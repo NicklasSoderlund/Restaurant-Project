@@ -18,8 +18,8 @@ export function Contact() {
             </div>
 
             <div className='contact__buttons'>
-                <Button color='#C67B47' width='' textColor='black'>Directions</Button>
-                <Button color='' width='' textColor=''>Call</Button>
+              <a href="http://maps.google.com/?q=Clinton Street, Brooklyn, NY, USA"> <Button color='#C67B47' width='' textColor='black'>Directions</Button> </a>
+               <a href="tel:123-123-1234"> <Button color='' width='' textColor=''>Call</Button> </a>
             </div>
 
             <form action="">
@@ -31,7 +31,7 @@ export function Contact() {
                 <input type="text" placeholder='Email'/>
                 <input type="text" placeholder='Phone'/>
                 </div>
-                <textarea name="" id="" rows={8} placeholder="Type your message here"></textarea>
+                <textarea name="" id="" rows={10} placeholder="Type your message here"></textarea>
 
                 </div>
 
