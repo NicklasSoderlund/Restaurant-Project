@@ -2,7 +2,7 @@ body{
     background-color: rgb(39, 39, 39);
     color:white;
 div {
-    font-family: 'geared-slab-regular';
+    font-family: 'Rubik', sans-serif;
     div{
         .ceasar{
             display:flex;
@@ -22,6 +22,11 @@ div {
             background-image: url("https://www.grandhotellapland.se/wp-content/uploads/2021/03/dsc_6079_26285328416_o-scaled-e1615978162929.jpg");
             background-repeat: no-repeat;
             justify-content: space-evenly;
+            background-position: center;
+            @media screen and (max-width: 720px) {
+               background-position: center;
+               background-image: url("https://thegourmetbonvivant.com/wp-content/uploads/2023/02/filet-mignon-ft.jpg");
+            }
 
             div{
             h3{
@@ -31,7 +36,11 @@ div {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                @media screen and (max-width: 720px) {
+                    font-size:25px;
+                 }
             }
+
         .buttoncontainer{
             display:flex;
             gap:10px;
@@ -64,10 +73,16 @@ div {
             display:flex;
 
             align-items: center;
+            @media screen and (max-width: 720px) {
+                flex-direction: column;
+             }
             .imageContainer{
                 width:30%;
                 display:flex;
                 justify-content: center;
+                @media screen and (max-width: 720px) {
+                    width:100%;
+                 }
                 img{
                     margin:15px;
                     border:5px solid black;
@@ -76,8 +91,14 @@ div {
             }
             .container{
                 width:50%;
+                @media screen and (max-width: 720px) {
+                    width:80%;
+                 }
                 p{
                     font-size:24px;
+                    @media screen and (max-width: 720px) {
+                        font-size:18px;
+                     }
                 }
             }
 
@@ -90,21 +111,52 @@ div {
             display:flex;
             margin:15px;
             text-align: center;
+            
+            @media screen and (max-width: 720px) {
+                flex-direction: column;
+                width:90%;
+                margin:0 auto;
+                margin-bottom:15px;
+             }
             .menuContainerFood{
                 border-right:1px solid #C67B47;
                 width:50%;
+                @media screen and (max-width: 720px) {
+                    width:100%;
+                    border-right:0;
+                 }
             ul{
-
+                padding:0;
+                margin-left:0;
                 list-style-type: none;
+                
+                li{
+                    padding-left:10px;
+                    margin:15px;
+                    text-align: center;
+                }
             }
         }
         .menuContainerDrink{
             border-left: 1px solid #C67B47;
             width:50%;
+            @media screen and (max-width: 720px) {
+                border-top:1px solid #C67B47;
+                border-left:0;
+                width: 100%;
+
+            }
             ul{
+                padding:0;
                 list-style: none;
+                li{
+                    padding-left:10px;
+                    margin:15px;
+                    text-align: center;
+                }
             }
         }
         }
     }
+
 }
