@@ -20,16 +20,16 @@ function BookingForm(props: BookingFormProps): JSX.Element {
       <h3>Please notice that you can only book up to 6 person per reservation.</h3>
     <div className='FormContainer'>
     <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Namn:</label>
+      <label htmlFor="name">Name:</label>
       <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
 
       <label htmlFor="email">Email:</label>
       <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-      <label htmlFor="date">Datum:</label>
+      <label htmlFor="date">Date:</label>
       <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} required />
       <div className='timeContainer'>
-      <label htmlFor="numPeople">Antal gäster:</label>
+      <label htmlFor="numPeople">Amount of guests:</label>
       <input type="number" id="numPeople" value={numPeople} onChange={(e) => {
           const value = Number(e.target.value);
           if (value >= 1 && value <= 6) {
@@ -41,7 +41,7 @@ function BookingForm(props: BookingFormProps): JSX.Element {
   max="6"
 />
 
-      <label htmlFor="time">Tid:</label>
+      <label htmlFor="time">Seating:</label>
       <input type="radio" id="time1" name="time" value="18:00" checked={time === "18:00"} onChange={(e) => setTime(e.target.value)} />
       <label htmlFor="time1">18:00</label>
       <input type="radio" id="time2" name="time" value="21:00" checked={time === "21:00"} onChange={(e) => setTime(e.target.value)} />
