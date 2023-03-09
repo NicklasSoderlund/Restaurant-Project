@@ -6,7 +6,7 @@ return <div>
         <div className='hero'>
             <div>
             <div className='ceasar'>
-                <img src="https://i.imgur.com/MW6zckt.png"></img>
+                <img src="https://i.imgur.com/MW6zckt.png" alt="logo of ceasar"></img>
             </div>
             <h3>Welcome to Jucius Steaksar</h3>
             <div className="buttoncontainer">
@@ -18,7 +18,7 @@ return <div>
         <main>
         <div className="mainContainer">
         <div className="imageContainer">
-            <img src="https://railssteakhouse.com/files/aff8fa376667a9c891d96218b25b9d6a_full_size.jpg">
+            <img src="https://railssteakhouse.com/files/aff8fa376667a9c891d96218b25b9d6a_full_size.jpg" alt="Picture of restaurant">
             </img>
         </div>
         <div className="container">

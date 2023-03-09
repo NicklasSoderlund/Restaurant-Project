@@ -48,6 +48,9 @@ div {
             list-style-type: none;
             font-size:20px;
             cursor: pointer;
+            @media screen and (max-width: 720px) {
+                font-size:18px;
+            }
         }
 
     }
