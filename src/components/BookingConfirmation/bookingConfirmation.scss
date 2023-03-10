@@ -1,0 +1,10 @@
+.bookingConfirmation {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 1px solid white;
+    padding: 2em;
+    h4 {
+        margin-top: 0;
+    }
+}
