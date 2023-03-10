@@ -45,6 +45,9 @@ button{
   border-color:#DDDDDD;
   cursor:pointer;
   }
+  button:disabled{
+    background-color: grey;
+  }
   .timeContainer {
       margin-top: 10px;
       margin-bottom: 5px;
@@ -54,4 +57,13 @@ button{
   }
   #numPeople {
     width: 10%;
+  }
+
+  .tableAvailable {
+    color: green;
+    text-align: center;
+  }
+  .tableNotAvailable {
+    color: red;
+    text-align: center;
   }

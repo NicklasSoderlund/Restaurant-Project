@@ -1,17 +1,18 @@
 import axios from "axios";
 
-export async function createBooking() {
+export async function createBooking(userDate:string, userTime:string, userGuests:number, 
+  customerFName:string, customerLName:string, customerEmail:string, customerPhone:string) {
    
     let myId =  await axios.post('https://school-restaurant-api.azurewebsites.net/booking/create', {
       "restaurantId": "64088bb976187b915f68e167",
-      "date": "2022-01-02",
-      "time": "18:00",
-      "numberOfGuests": 4,
+      "date": userDate,
+      "time": userTime,
+      "numberOfGuests":userGuests,
       "customer": {
-        "name": "Franzén",
-        "lastname": "Sebastian",
-        "email": "someone@somedomain.com",
-        "phone": "070-1112233"
+        "name": customerFName,
+        "lastname": customerLName,
+        "email": customerEmail,
+        "phone": customerPhone
       }
     })
    ;
