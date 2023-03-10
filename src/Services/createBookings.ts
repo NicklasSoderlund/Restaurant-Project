@@ -1,5 +1,9 @@
 import axios from "axios";
 
+interface IBookingResponse {
+  insertedId: string;
+}
+
 export async function createBooking(userDate:string, userTime:string, userGuests:number, 
   customerFName:string, customerLName:string, customerEmail:string, customerPhone:string) {
    
@@ -17,7 +21,7 @@ export async function createBooking(userDate:string, userTime:string, userGuests
     })
    ;
    
-   return console.log(myId.data);
+   return myId.data as IBookingResponse;
    
    
    }
