@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export interface IBooking {
-    id: string,
+    _id: string,
     date: string,
     time: string,
     numberOfGuests: number,

@@ -1,0 +1,23 @@
+.BookingsContainer{
+display:flex;
+flex-wrap: wrap;
+width:100%;
+gap:10px;
+height:100%;
+justify-content: center;
+margin: 15px 0px 15px 0px;
+}
+.bookingcontainer{
+    display: flex;
+    flex-direction: column;
+    height:250px;
+    align-items: center;
+    justify-content: center;
+    background-color: #212121;
+    font-size: 15px;
+    padding:15px;
+}
+.bookingcontainer:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+   }

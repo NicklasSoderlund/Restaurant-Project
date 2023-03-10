@@ -1,0 +1,34 @@
+.bookingDetailsContainer {
+    display:flex;
+    width:100%;
+    height:100%;
+    justify-content: center;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    .bookingDetailsInfo{
+        h3{
+            text-align: center;
+        }
+        
+        margin:15px;
+        width: 40%;
+        border:1px solid black;
+        padding:15px;
+    }
+    .bookingDetailsCustomer{
+        h3{
+            text-align: center;
+        }
+        margin:15px;
+        width:40%;
+        border:1px solid black;
+        padding:15px;
+    }
+    .buttonContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        padding:50px;
+    }
+}

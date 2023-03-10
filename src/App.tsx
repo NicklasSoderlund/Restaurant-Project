@@ -8,6 +8,7 @@ import { Admin } from './components/Admin/Admin';
 import { Nav } from './components/Nav/Nav';
 import { Footer } from './components/Footer/Footer';
 import { fetchBookings, IBooking } from './Services/fetchBookings';
+import { AdminDetails } from './components/AdminDetails/AdminDetails';
 
 
 
@@ -39,7 +40,7 @@ function App() {
       <Route path="/booking" element={<Booking></Booking>}></Route>
       <Route path="/contact" element={<Contact></Contact>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
-
+      <Route path="/admin/:bookingId" element={<AdminDetails></AdminDetails>}></Route>
       <Route path="*" element={<h3>Page not found</h3>}></Route>
       </Routes>
       <Footer></Footer>
