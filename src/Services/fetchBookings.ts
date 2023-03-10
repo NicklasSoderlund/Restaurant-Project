@@ -16,3 +16,9 @@ export async function fetchBookings(){
     return response.data as IBooking[];
     
     }
+
+export async function getBooking(bookingId:string) {
+    let response = await axios.get('https://school-restaurant-api.azurewebsites.net/booking/' + bookingId);
+
+    return response.data as IBooking;
+}

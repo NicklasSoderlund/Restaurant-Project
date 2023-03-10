@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link, redirect } from 'react-router-dom';
 import { BookingsContext } from '../../App';
 import { createBooking } from '../../Services/createBookings';
 import { fetchBookings, IBooking } from '../../Services/fetchBookings';
+import { BookingConfirmation } from '../BookingConfirmation/BookingConfirmation';
 import './booking.scss';
 
 interface BookingFormProps {}
@@ -10,20 +12,24 @@ function BookingForm(props: BookingFormProps): JSX.Element {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
-const [timeAvailable, setTimeAvailable] = useState(true);
   const [email, setEmail] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [numPeople, setNumPeople] = useState(1);
-
 
   const bookings = useContext(BookingsContext);
   const [earlySeating, setEarlySeating] = useState(0);
   const [lateSeating, setLateSeating] = useState(0);
   const [tableAvailable, setTableAvailable] = useState(<div></div>);
 
+  const [bookingId, setBookingId] = useState('');
+
   const tableAvailableHtml = <div className='tableAvailable'>Tables are available at this time!</div>
-  const tableNotAvailableHtml = <div className='tableNotAvailable'>Tables are not available at this time!</div>
+  const tableNotAvailableHtml = <div className='tableNotAvailable'>No tables are available at this time!</div>
+
+  const [effectTrain, setEffectTrain] = useState(false)
+
+
 
    useEffect(() => {
     function checkBookingAvailability(userDate:string ) {
@@ -44,6 +50,7 @@ const [timeAvailable, setTimeAvailable] = useState(true);
    setLateSeating(lateCounter);
   }
   checkBookingAvailability(date);
+  setEffectTrain(!effectTrain)
 
    },[date, time])
   
@@ -51,24 +58,6 @@ const [timeAvailable, setTimeAvailable] = useState(true);
 
 useEffect(() => {
   function displayEarlyAvailability() {
-  //   if (earlySeating < 15) {
-  //      setTableAvailable(tableAvailableHtml)
-  //      console.log(earlySeating);
-  //   }
-  //   else {
-     
-  //     setTableAvailable(tableNotAvailableHtml);
-  //   }
-  // }
-  // function displayLateAvailability() {
-  //   if (lateSeating < 15) {
-  //      setTableAvailable(tableAvailableHtml)
-  //   }
-  //   else {
-      
-  //     setTableAvailable(tableNotAvailableHtml);
-  //   }
-  // }
 
 let timeEarly =  document.getElementById("time1") as HTMLInputElement
 let timeLate =  document.getElementById("time2") as HTMLInputElement
@@ -76,7 +65,6 @@ let bookingSubmitButton =  document.getElementById("bookingSubmitButton") as HTM
 if (timeEarly.checked === true) {
   if (earlySeating < 15) {
     setTableAvailable(tableAvailableHtml)
-    console.log(earlySeating);
     bookingSubmitButton.disabled = false;
  }
  else {
@@ -96,21 +84,33 @@ if (timeLate.checked === true) {
  }
 }
 }
-displayEarlyAvailability();
-}, [time])
+if (date) {
+  displayEarlyAvailability();
+}
+
+}, [effectTrain])
 
 
 
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    createBooking(date, time, numPeople, firstName, lastName, email, phone);
+    const getBookingId = async () => {
+      let booking = await createBooking(date, time, numPeople, firstName, lastName, email, phone);
+      setBookingId(booking.insertedId);
+    }
+    getBookingId();
+
   };
 
 
 
   return (
+    
     <section className='Booking'>
+      {bookingId ? <BookingConfirmation bookingId={bookingId}></BookingConfirmation> :
+      <div>
+   
       <h2>Book a table!</h2>
       <h3>Please notice that you can only book up to 6 person per reservation.</h3>
     <div className='FormContainer'>
@@ -148,14 +148,22 @@ displayEarlyAvailability();
       <input type="radio" id="time2" name="time" value="21:00" checked={time === "21:00"} onChange={(e) => setTime(e.target.value)} />
       <label htmlFor="time2">21:00</label>
       </div>
+   
       {tableAvailable}
       <br></br>
-      <button id='bookingSubmitButton' type="submit">Book a table</button>
+   <button id='bookingSubmitButton' type="submit">Book a table</button> 
     </form>
     </div>
+       
+    </div>
+     
+     
+
+}
 
     
     </section>
+
   );
 }
 

@@ -8,6 +8,7 @@ import { Admin } from './components/Admin/Admin';
 import { Nav } from './components/Nav/Nav';
 import { Footer } from './components/Footer/Footer';
 import { fetchBookings, IBooking } from './Services/fetchBookings';
+import { BookingConfirmation } from './components/BookingConfirmation/BookingConfirmation';
 
 
 
