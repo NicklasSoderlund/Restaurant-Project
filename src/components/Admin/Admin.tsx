@@ -1,9 +1,7 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react"
-import { Link, Route, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BookingsContext } from "../../App";
 import { IBooking } from "../../Services/fetchBookings";
-import { AdminDetails } from "../AdminDetails/AdminDetails";
 import { Button } from "../styled/Button";
 import "./admin.scss";
 
