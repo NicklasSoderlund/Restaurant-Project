@@ -16,6 +16,5 @@ export const Button = styled.button`
     border: 2px solid #C67B47;
     cursor: pointer;
 
-
     
 `;
