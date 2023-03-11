@@ -10,16 +10,27 @@ import { Footer } from './components/Footer/Footer';
 import { fetchBookings, IBooking } from './Services/fetchBookings';
 import { AdminDetails } from './components/AdminDetails/AdminDetails';
 
-
+interface IBookingsContext {
+  removeBooking() : void,
+  bookings:IBooking[]
+}
 
 
 const apiId = "64088bb976187b915f68e167";
 
 export const BookingsContext = createContext<IBooking[]>([])
 
+
+
 function App() {
 
   const [bookings, setBookings] = useState<IBooking[]>([]);
+
+  function removeBooking(bookingId:string) {
+    setBookings((current) =>
+    current.filter((booking) => booking._id !== bookingId));
+
+  }
    
   
   useEffect(() =>  {
@@ -40,7 +51,7 @@ function App() {
       <Route path="/booking" element={<Booking></Booking>}></Route>
       <Route path="/contact" element={<Contact></Contact>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
-      <Route path="/admin/:bookingId" element={<AdminDetails></AdminDetails>}></Route>
+      <Route path="/admin/:bookingId" element={<AdminDetails removeBooking={removeBooking}></AdminDetails>}></Route>
       <Route path="*" element={<h3>Page not found</h3>}></Route>
       </Routes>
       <Footer></Footer>

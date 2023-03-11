@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { BookingsContext } from "../../App";
 import { Button } from "../styled/Button";
 import "./admindetails.scss";
@@ -13,7 +14,11 @@ interface ICustomer {
     phone:string;
 }
 
-export const AdminDetails= ()=>{
+interface IAdminDetailsProps {
+  removeBooking(bookingId:string): void
+}
+
+export const AdminDetails= (props: IAdminDetailsProps)=>{
     const { bookingId } = useParams();
     const [customer,setCustomer] = useState<ICustomer>();
     const bookings = useContext(BookingsContext);
@@ -23,7 +28,7 @@ export const AdminDetails= ()=>{
         let response = await axios.get(`https://school-restaurant-api.azurewebsites.net/customer/${booking?.customerId}`)
         setCustomer(response.data[0]);
         return response.data;
-        
+       
     }
 
     useEffect(() => {
@@ -54,9 +59,10 @@ export const AdminDetails= ()=>{
         <p>Phone: {customer?.phone}</p>
         </div>
         <div className="buttonContainer">
-        <Button color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
+    <Link to="http://localhost:3000/Admin">   <Button color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
-                }}>Remove booking</Button>  
+                props.removeBooking(bookingId as string);
+                }}>Remove booking</Button>  </Link> 
                 </div>
       </div>
     );
