@@ -1,6 +1,7 @@
 body{
     // background-color: rgb(39, 39, 39);
-    background-color: #0a0a0a;
+    // background-color: #0a0a0a;
+    background-color: black;
     color:white;
 div {
     // font-family: 'Rubik', sans-serif;
@@ -29,7 +30,11 @@ div {
                background-image: url("https://thegourmetbonvivant.com/wp-content/uploads/2023/02/filet-mignon-ft.jpg");
             }
 
-            div{
+            .heroContent{
+                display: flex;
+                flex-direction: column;
+                gap:1em;
+                
             h3{
                 margin:0;
                 font-size:45px;
@@ -44,24 +49,26 @@ div {
 
         .buttoncontainer{
             display:flex;
-            gap:10px;
+            gap:25px;
             align-items: center;
             justify-content: center;
             button{
-                padding:8px 48px;
-                background-color: transparent;
-                border:2px solid #FFFFFF;
-                margin:0 5px 5px 0;
-                box-sizing: border-box;
-                font-weight:400;
-                color:#FFFFFF;
-                text-align:center;
-                }
-                button:hover{
-                color:#DDDDDD;
-                border-color:#DDDDDD;
-                cursor:pointer;
-                }
+                // padding:8px 48px;
+                // background-color: transparent;
+                // border:2px solid #FFFFFF;
+                // margin:0 5px 5px 0;
+                // box-sizing: border-box;
+                // font-weight:400;
+                // color:#FFFFFF;
+                // text-align:center;
+                // }
+                // button:hover{
+                // color:#DDDDDD;
+                // border-color:#DDDDDD;
+                // cursor:pointer;
+
+
+                 }
             }
             }
         }
@@ -72,6 +79,10 @@ div {
 
         .mainContainer {
             display:flex;
+            margin: 15em 0 15em 0;
+            justify-content: center;
+            gap: 4em;
+        
 
             align-items: center;
             @media screen and (max-width: 720px) {
@@ -112,6 +123,8 @@ div {
             display:flex;
             margin:15px;
             text-align: center;
+            margin-top: 3em;
+            padding: 0.5em 0;
             
             @media screen and (max-width: 720px) {
                 flex-direction: column;
@@ -160,4 +173,22 @@ div {
         }
     }
 
+}
+
+
+
+.videoContainer {
+    position: absolute;
+    top:85vh;
+    z-index: -1;
+    opacity: 15%;
+}
+
+.steakVideoContainer {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 550px;
+overflow: hidden;
+margin: 4em 0;
 }
