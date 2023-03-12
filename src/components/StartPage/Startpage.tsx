@@ -16,8 +16,8 @@ return <div>
             <div className="buttoncontainer">
             {/* <Link to={"/Booking"}><button>Book a table</button></Link>
             <Link to={"/Contact"}><button>Contact us</button></Link> */}
-            <Button color='#f89956' width='11em' textColor='black' border='2px solid black'>Book a table</Button>
-            <Button color='' width='11em' textColor='' border='2px solid white'>Contact us</Button>
+            <Button color='#f89956' width='11em' textColor='black' border='3px solid black'>Book a table</Button>
+            <Button color='' width='11em' textColor='' border='3px solid white'>Contact us</Button>
             </div>
             </div>
         </div>
@@ -109,7 +109,7 @@ return <div>
         </div>
         </main>
         <div className='steakVideoContainer'>
-            <video autoPlay loop muted playsInline width={"90%"} height={"auto"}>
+            <video autoPlay loop muted playsInline width={"95%"} height={"auto"}>
                 <source src={steakVideo} type="video/mp4" />
             </video>
         </div>

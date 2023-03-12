@@ -67,7 +67,6 @@ div {
                 // border-color:#DDDDDD;
                 // cursor:pointer;
 
-
                  }
             }
             }
@@ -79,7 +78,8 @@ div {
 
         .mainContainer {
             display:flex;
-            margin: 15em 0 15em 0;
+            height: 100vh;
+            margin-bottom: 6em;
             justify-content: center;
             gap: 4em;
         
@@ -179,7 +179,7 @@ div {
 
 .videoContainer {
     position: absolute;
-    top:85vh;
+    top:100vh;
     z-index: -1;
     opacity: 15%;
 }
@@ -190,5 +190,5 @@ align-items: center;
 justify-content: center;
 height: 550px;
 overflow: hidden;
-margin: 4em 0;
+margin: 5em 0;
 }
