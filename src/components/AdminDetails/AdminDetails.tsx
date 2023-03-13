@@ -92,6 +92,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
 
     useEffect(() => {
       props.reloadBookings();
+      console.log("poop");
     }, [showBookingConfirmation])
 
     const handleInputChangeBooking = (event:React.ChangeEvent<HTMLInputElement>) => {
@@ -202,7 +203,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         </div>:null}
         </div>
         <div className="buttonContainer">
-        <Link to="/admin"> <Button border="" color="#C67B47" width="250px" textColor="white">All bookings</Button></Link> 
+        <Link to="/admin"> <Button border="" color="#C67B47" width="250px" textColor="white" onClick={props.reloadBookings}>All bookings</Button></Link> 
     <Link to="/admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
                 props.removeBooking(bookingId as string);
