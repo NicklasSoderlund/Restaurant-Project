@@ -7,14 +7,9 @@ import { Button } from "../styled/Button";
 import "./admindetails.scss";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ICustomer } from "../../models/ICustomer";
 
-interface ICustomer {
-    id:string;
-    name:string;
-    lastname:string;
-    email:string;
-    phone:string;
-}
+
 
 interface IAdminDetailsProps {
   removeBooking(bookingId:string): void
@@ -25,6 +20,9 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [customer,setCustomer] = useState<ICustomer>();
     const bookings = useContext(BookingsContext);
     const booking = bookings.find(booking => booking._id === bookingId);
+    const [updateBookingForm,setupdateBookingForm] = useState(false);
+    const [updatedBooking, setUpdatedBooking] = useState<{ date: string, time: string, numberOfGuests: number }>({ date: "", time: "", numberOfGuests: 1 });
+
 
     async function getCustomerInfo (){
         let response = await axios.get(`https://school-restaurant-api.azurewebsites.net/customer/${booking?.customerId}`)
@@ -37,9 +35,35 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         getCustomerInfo();
         
     }, [booking?.customerId]);
+    
+    const confirmationstyle ={
+      color:'green',
+    }
 
+    const handleSubmit = (event:React.FormEvent<HTMLFormElement>,bookingId:string,customerId:string) => {
+      event.preventDefault();
+      console.log(`Updated booking: ${bookingId}`);
+      const updatedBookingData = {
+        id: bookingId,
+        restaurantId:"64088bb976187b915f68e167",
+        date: updatedBooking.date,
+        time: updatedBooking.time,
+        numberOfGuests: updatedBooking.numberOfGuests,
+        customerId: customerId
+      };
     
-    
+      axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${bookingId}`,updatedBookingData)  
+      console.log(updatedBookingData);
+      setupdateBookingForm(false);
+      window.location.reload()
+    }
+
+    const handleInputChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = event.target;
+      setUpdatedBooking({ ...updatedBooking, [name]: value });
+      console.log(updatedBooking);
+    };
+
 
 
     if (!booking) {
@@ -53,6 +77,29 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         <p>Date: {booking.date}</p>
         <p>Time: {booking.time}</p>
         <p>Guests: {booking.numberOfGuests}</p>
+        <div className="updateBookingButtonContainer">
+        <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{
+          setupdateBookingForm(true);
+        }}>Update Bookingdetails</Button>
+        </div>
+        {updateBookingForm?<div className="updateBookingContainer">
+        <form onSubmit={(event) => handleSubmit(event, booking._id,booking.customerId)}>
+          <label htmlFor="date">Date:</label>
+          <input type="date" id="date" required name="date" onChange={handleInputChange}></input>
+          <label htmlFor="time">Seating:</label>
+          <input type="radio" id="time1" name="time" value="18:00" required  onChange={handleInputChange}></input>
+          <label htmlFor="time1">18:00</label>
+          <input type="radio" id="time2" name="time" value="21:00" required onChange={handleInputChange}></input>
+          <label htmlFor="time2">21:00</label>
+          <label htmlFor="numPeople">Guests</label>
+          <input type="number" id="numPeople" min="1" max="6" name="numberOfGuests" onChange={handleInputChange}></input>
+          
+
+          <Button type="submit" border="1px solid white" color="green" width="250px" textColor="white"> Update</Button>
+          <Button type="button" border="1px solid white" color="red" width="250px" textColor="white" name={"numberOfGuests"} onClick={()=>{setupdateBookingForm(false);
+          console.log(`Cancelled update on: ${booking._id}`)}}> Cancel</Button>
+          </form>
+        </div>:null}
         </div>
         <div className="bookingDetailsCustomer"> <h3>Customer Details</h3>
         <p>Firstname: {customer?.name} </p>
@@ -61,7 +108,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         <p>Phone: {customer?.phone}</p>
         </div>
         <div className="buttonContainer">
-    <Link to="http://localhost:3000/Admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
+    <Link to="/admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
                 props.removeBooking(bookingId as string);
                 }}>Remove booking</Button>  </Link> 
