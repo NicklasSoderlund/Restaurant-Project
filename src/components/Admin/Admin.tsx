@@ -28,6 +28,7 @@ export function Admin() {
                 console.log(booking._id)
                 }}>
                 <p>Booking id: {booking._id}</p>
+                <p>Customer id: {booking.customerId}</p>
                 <p>Date: {booking.date}</p>
                 <p>Time: {booking.time}</p>
                 <p>Guests: {booking.numberOfGuests}</p>

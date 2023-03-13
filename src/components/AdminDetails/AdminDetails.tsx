@@ -132,7 +132,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
             } else {
               setshowCustomerForm(true);
             }
-        }}>Update Bookingdetails</Button>
+        }}>Update Customerdetails</Button>
         </div>
         {showCustomerForm?<div className="updateCustomerContainer">
           <form onSubmit={(event) => handleCustomerSubmit(event, booking.customerId)}>
