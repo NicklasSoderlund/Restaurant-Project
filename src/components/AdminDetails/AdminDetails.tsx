@@ -8,33 +8,53 @@ import "./admindetails.scss";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ICustomer } from "../../models/ICustomer";
+import { IBooking } from "../../Services/fetchBookings";
+
 
 
 
 interface IAdminDetailsProps {
-  removeBooking(bookingId:string): void
+  removeBooking(bookingId:string): void,
+  reloadBookings() : void
 }
 
 export const AdminDetails= (props: IAdminDetailsProps)=>{
     const { bookingId } = useParams();
     const [customer,setCustomer] = useState<ICustomer>();
     const bookings = useContext(BookingsContext);
-    const booking = bookings.find(booking => booking._id === bookingId);
     const [showBookingForm,setshowBookingForm] = useState(false);
     const [updatedBooking, setUpdatedBooking] = useState<{ date: string, time: string, numberOfGuests: number }>({ date: "", time: "", numberOfGuests: 1 });
     const [showCustomerForm,setshowCustomerForm] = useState(false);
     const [updatedCustomer, setupdatedCustomer] = useState<{name:string,lastName:string,email:string,phone:string}>({name:"",lastName:"",email:"",phone:"",});
+    const [booking, setBooking] = useState<IBooking>();
+
+
+
+    useEffect(() => {
+      let LsBookings:IBooking[] = JSON.parse(localStorage.getItem("bookings") as string)
+      const startBooking = LsBookings.find(booking => booking._id === bookingId) as IBooking;
+      setBooking(startBooking);
+    }, [])
+
+
     async function getCustomerInfo (){
         let response = await axios.get(`https://school-restaurant-api.azurewebsites.net/customer/${booking?.customerId}`)
         setCustomer(response.data[0]);
         return response.data;
-       
+   
     }
 
     useEffect(() => {
+      props.reloadBookings();
+   }, [updatedBooking])
+     
+
+    useEffect(() => {
+      console.log(booking)
+      if (booking) {
         getCustomerInfo();
-        
-    }, [booking?.customerId]);
+      }
+    }, [booking]);
     
 
 
@@ -49,11 +69,21 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         numberOfGuests: updatedBooking.numberOfGuests,
         customerId: customerId
       };
+
+      const updatedBookingDataForState = {
+        _id: bookingId,
+        restaurantId:"64088bb976187b915f68e167",
+        date: updatedBooking.date,
+        time: updatedBooking.time,
+        numberOfGuests: updatedBooking.numberOfGuests,
+        customerId: customerId
+      };
     
       axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${bookingId}`,updatedBookingData)  
       console.log(updatedBookingData);
       setshowBookingForm(false);
-      window.location.reload()
+      setBooking(updatedBookingDataForState as IBooking);
+      // window.location.reload()
     }
 
     const handleInputChangeBooking = (event:React.ChangeEvent<HTMLInputElement>) => {
