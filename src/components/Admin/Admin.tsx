@@ -31,7 +31,7 @@ export function Admin() {
                 <p>Date: {booking.date}</p>
                 <p>Time: {booking.time}</p>
                 <p>Guests: {booking.numberOfGuests}</p>
-                <Button color="#C67B47" width="250px" textColor="white" onClick={()=>{ navigate(`/admin/${booking._id}`)
+                <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ navigate(`/admin/${booking._id}`)
                 }}>More Details</Button>  
               
             </div>

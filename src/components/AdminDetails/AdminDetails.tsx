@@ -61,7 +61,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         <p>Phone: {customer?.phone}</p>
         </div>
         <div className="buttonContainer">
-    <Link to="http://localhost:3000/Admin">   <Button color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
+    <Link to="http://localhost:3000/Admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
                 props.removeBooking(bookingId as string);
                 }}>Remove booking</Button>  </Link> 
