@@ -18,6 +18,7 @@ interface ICustomer {
 
 interface IAdminDetailsProps {
   removeBooking(bookingId:string): void
+  bookingRemoved() : void
 }
 
 export const AdminDetails= (props: IAdminDetailsProps)=>{
@@ -64,6 +65,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     <Link to="http://localhost:3000/Admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
                 props.removeBooking(bookingId as string);
+                props.bookingRemoved();
                 }}>Remove booking</Button>  </Link> 
                 </div>
       </div>

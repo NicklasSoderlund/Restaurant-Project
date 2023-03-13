@@ -14,10 +14,8 @@ return <div>
             </div>
             <h3>Welcome to Jucius Steaksar</h3>
             <div className="buttoncontainer">
-            {/* <Link to={"/Booking"}><button>Book a table</button></Link>
-            <Link to={"/Contact"}><button>Contact us</button></Link> */}
-            <Button color='#f89956' width='11em' textColor='black' border='3px solid black'>Book a table</Button>
-            <Button color='' width='11em' textColor='' border='3px solid white'>Contact us</Button>
+            <Link to={"/Booking"}>  <Button color='#f89956' width='11em' textColor='black' border='3px solid black'>Book a table</Button> </Link>
+            <Link to={"/Contact"}>   <Button color='' width='11em' textColor='' border='3px solid white'>Contact us</Button> </Link>
             </div>
             </div>
         </div>
@@ -48,7 +46,6 @@ return <div>
             <ul>
                 <li><b>Jucius Steak Bites:</b> Bite-sized pieces of our tender and juicy steak, served with a house-made horseradish sauce.</li>
                 <li><b>Lobster Bisque:</b> A creamy and indulgent soup made with fresh lobster meat and garnished with chives.</li>
-                <li><b>Truffle Fries:</b> Crispy french fries tossed in truffle oil and grated parmesan cheese.</li>
             </ul>
             <h4>ENTREES:</h4>
             <ul>
@@ -72,7 +69,6 @@ return <div>
             <ul>
                 <li><b>Classic Cheesecake:</b> Creamy and indulgent cheesecake with a graham cracker crust, topped with fresh berries.</li>
                 <li><b>Chocolate Lava Cake:</b> A warm and gooey chocolate cake with a molten chocolate center, served with vanilla ice cream.</li>
-                <li><b>Crème Brûlée:</b> A classic French dessert with a caramelized sugar crust and a creamy vanilla custard filling.</li>
             </ul>
         </div>
         <div className='menuContainerDrink'>
