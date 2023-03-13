@@ -45,6 +45,13 @@ button{
   border-color:#DDDDDD;
   cursor:pointer;
   }
+  button:disabled{
+    background-color: grey;
+  }
+  button:disabled:hover {
+    border-color: grey;
+    color: white;
+  }
   .timeContainer {
       margin-top: 10px;
       margin-bottom: 5px;
@@ -53,5 +60,14 @@ button{
       align-items: center;
   }
   #numPeople {
-    width: 10%;
+    width: 35px;
+  }
+
+  .tableAvailable {
+    color: green;
+    text-align: center;
+  }
+  .tableNotAvailable {
+    color: red;
+    text-align: center;
   }
