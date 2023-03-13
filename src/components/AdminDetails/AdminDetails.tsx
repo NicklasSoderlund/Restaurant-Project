@@ -95,7 +95,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         <p>Time: {booking.time}</p>
         <p>Guests: {booking.numberOfGuests}</p>
         <div className="updateBookingButtonContainer">
-        <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{  if (showBookingForm) {
+        <Button border="" color="#C67B47" width="50%" textColor="white" onClick={()=>{  if (showBookingForm) {
           setshowBookingForm(false);
             } else {
            setshowBookingForm(true);
@@ -106,16 +106,20 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         <form onSubmit={(event) => handleBookingSubmit(event, booking._id,booking.customerId)}>
           <label htmlFor="date">Date:</label>
           <input type="date" id="date" required name="date" onChange={handleInputChangeBooking}></input>
+          <div className="seatingContainer">
           <label htmlFor="time">Seating:</label>
           <input type="radio" id="time1" name="time" value="18:00" required  onChange={handleInputChangeBooking}></input>
           <label htmlFor="time1">18:00</label>
           <input type="radio" id="time2" name="time" value="21:00" required onChange={handleInputChangeBooking}></input>
           <label htmlFor="time2">21:00</label>
+          </div>
           <label htmlFor="numPeople">Guests</label>
           <input type="number" id="numPeople" min="1" max="6" name="numberOfGuests" onChange={handleInputChangeBooking}></input>
+          <div className="buttonContaienrBookingForm">
           <Button type="submit" border="1px solid white" color="green" width="250px" textColor="white"> Update</Button>
           <Button type="button" border="1px solid white" color="red" width="250px" textColor="white" onClick={()=>{setshowBookingForm(false);
           console.log(`Cancelled update on: ${booking._id}`)}}> Cancel</Button>
+          </div>
           </form>
         </div>:null}
         </div>
@@ -126,7 +130,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         <p>Email: {customer?.email}</p>
         <p>Phone: {customer?.phone}</p>
         <div className="updateCustomerButtonContainer">
-        <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{  
+        <Button border="" color="#C67B47" width="50%" textColor="white" onClick={()=>{  
           if (showCustomerForm) {
           setshowCustomerForm(false);
             } else {
@@ -144,9 +148,11 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           <input type="email" id="email" required placeholder={customer?.email} name="email" onChange={handleInputChangeCustomer}/>
           <label htmlFor="phone">Phone:</label>
           <input type="text" id="phone" required placeholder={customer?.phone} name="phone" onChange={handleInputChangeCustomer}/>
+          <div className="buttonContainerCustomerForm">
           <Button type="submit" border="1px solid white" color="green" width="250px" textColor="white"> Update</Button>
           <Button type="button" border="1px solid white" color="red" width="250px" textColor="white" onClick={()=>{setshowCustomerForm(false);
           console.log(`Cancelled update on: ${customer?.id}`)}}> Cancel</Button>
+          </div>
           </form>
         </div>:null}
         </div>

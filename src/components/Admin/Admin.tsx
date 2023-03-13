@@ -22,8 +22,11 @@ export function Admin() {
     return (
         
         <div className="BookingsContainer">
+            <div className="titleContainer">
+            <h3>Hantera bokningar</h3>
+            </div>
             {contextBookings.map((booking)=>(
-                <Link key={booking._id} to={`/admin/${booking._id}`}>
+                <Link className="bookingContainerLink" key={booking._id} to={`/admin/${booking._id}`}>
                 <div key={booking._id} className="bookingcontainer" onClick={()=>{
                 console.log(booking._id)
                 }}>

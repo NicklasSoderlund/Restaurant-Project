@@ -15,7 +15,7 @@ export function Contact() {
         <h3 className='colorClass'>Contact and Location</h3>
             <div className="contact__content__adress">
                 <span className="contact__content__name, colorClass">Jucius Steaksar - New York City</span>
-                <span className="contact__content__street">20 Cherryblossom Lane </span>
+                <span className="contact__content__street">Juicybeef-Street 69 </span>
                 <span className="contact__content__phone, colorClass">01287-100877</span>
             </div>
 
