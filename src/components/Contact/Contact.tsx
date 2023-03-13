@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Button } from '../styled/Button';
 import './contact.scss';
-
+import fireVideo from "./Assets/fireVideo.mp4";
 
 
 export function Contact() {
@@ -20,8 +20,8 @@ export function Contact() {
             </div>
 
             <div className='contact__buttons'>
-              <a href="http://maps.google.com/?q=Clinton Street, Brooklyn, NY, USA"> <Button color='#C67B47' width='' textColor='black'>Directions</Button> </a>
-               <a href="tel:123-123-1234"> <Button color='' width='' textColor=''>Call</Button> </a>
+              <a href="http://maps.google.com/?q=Clinton Street, Brooklyn, NY, USA"> <Button color='#C67B47' width='' textColor='black' border=''>Directions</Button> </a>
+               <a href="tel:123-123-1234"> <Button color='' width='' textColor='' border=''>Call</Button> </a>
             </div>
 
             <form action="">
@@ -37,11 +37,17 @@ export function Contact() {
 
                 </div>
 
-              <div> <Button color='' width='11em' textColor=''>Submit</Button>  </div> 
+              <div> <Button color='' width='11em' textColor='' border=''>Submit</Button>  </div> 
 
             </form>
 
             </div>
+
+            <div className='contactVideoContainer'>
+            <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
+                <source src={fireVideo} type="video/mp4" />
+            </video>
+        </div>
         </section>
     )
 }

@@ -1,17 +1,23 @@
 import { Link } from 'react-router-dom';
+import { Button } from '../styled/Button';
 import './startPage.scss';
+import React from 'react';
+import fireVideo from "./Assets/fireVideo.mp4";
+import steakVideo from "./Assets/steak-16406.mp4"
 
 export function StartPage() {
 return <div>
         <div className='hero'>
-            <div>
+            <div className='heroContent'>
             <div className='ceasar'>
                 <img src="https://i.imgur.com/MW6zckt.png" alt="logo of ceasar"></img>
             </div>
             <h3>Welcome to Jucius Steaksar</h3>
             <div className="buttoncontainer">
-            <Link to={"/Booking"}><button>Book a table</button></Link>
-            <Link to={"/Contact"}><button>Contact us</button></Link>
+            {/* <Link to={"/Booking"}><button>Book a table</button></Link>
+            <Link to={"/Contact"}><button>Contact us</button></Link> */}
+            <Button color='#f89956' width='11em' textColor='black' border='3px solid black'>Book a table</Button>
+            <Button color='' width='11em' textColor='' border='3px solid white'>Contact us</Button>
             </div>
             </div>
         </div>
@@ -26,8 +32,14 @@ return <div>
             <p>At Jucius Steakcar, we believe that quality ingredients make all the difference. That's why we source our beef from the finest ranches and farms, ensuring that every cut is of the highest quality. And it's not just our steaks that are top-notch - our menu is filled with delicious appetizers, salads, and sides that are made with the freshest ingredients available. Come taste the difference for yourself at Jucius Steakcar.</p>
         </div>
         </div>
+        
+        <div className='videoContainer'>
+            <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
+                <source src={fireVideo} type="video/mp4" />
+            </video>
+        </div>
 
-        <h2>Menu</h2>
+       <h2>Menu</h2> 
         <div className='menuContainer'>
 
             <div className="menuContainerFood">
@@ -96,6 +108,10 @@ return <div>
         </div>
         </div>
         </main>
-        
+        <div className='steakVideoContainer'>
+            <video autoPlay loop muted playsInline width={"95%"} height={"auto"}>
+                <source src={steakVideo} type="video/mp4" />
+            </video>
+        </div>
 </div>
 }
