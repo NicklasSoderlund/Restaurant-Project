@@ -30,12 +30,86 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [showCustomerConfirmation,setshowCustomerConfirmation] = useState(false);
     const [showBookingConfirmation,setshowBookingConfirmation] = useState(false);
 
+    const [earlySeating, setEarlySeating] = useState(0);
+    const [lateSeating, setLateSeating] = useState(0);
+    const [tableAvailable, setTableAvailable] = useState(<div></div>);
+    const [effectTrain, setEffectTrain] = useState(false)
+    const [bookingsFromLs, setBookingsFromLs] = useState<IBooking[]>([])
+
+    // const [date, setDate] = useState('');
+    // const [time, setTime] = useState('');
+
+    const tableAvailableHtml = <div className='tableAvailable'>Tables are available at this time!</div>
+    const tableNotAvailableHtml = <div className='tableNotAvailable'>No tables are available at this time!</div>
 
     useEffect(() => {
       let LsBookings:IBooking[] = JSON.parse(localStorage.getItem("bookings") as string)
       const startBooking = LsBookings.find(booking => booking._id === bookingId) as IBooking;
       setBooking(startBooking);
+      setBookingsFromLs(LsBookings);
     }, [])
+
+    useEffect(() => {
+      function checkBookingAvailability(userDate:string ) {
+        let earlyCounter = 0
+        let lateCounter = 0
+      
+     for (let i = 0; i < bookingsFromLs.length; i++) {
+    
+       if(bookingsFromLs[i].date === userDate) {
+           if (bookingsFromLs[i].time === "18:00") {
+             earlyCounter++
+           }
+           else {
+             lateCounter++
+           }
+       }
+     }
+     setEarlySeating(earlyCounter);
+     setLateSeating(lateCounter);
+    }
+    checkBookingAvailability(updatedBooking.date);
+    setEffectTrain(!effectTrain)
+  
+     },[updatedBooking.date, updatedBooking.time])
+    
+  
+  
+  useEffect(() => {
+    function displayEarlyAvailability() {
+  
+  let timeEarly =  document.getElementById("time1") as HTMLInputElement
+  console.log(timeEarly);
+  let timeLate =  document.getElementById("time2") as HTMLInputElement
+  let bookingSubmitButton =  document.getElementById("bookingSubmitButton") as HTMLButtonElement
+  if (timeEarly.checked === true) {
+    if (earlySeating < 15) {
+      setTableAvailable(tableAvailableHtml)
+      bookingSubmitButton.disabled = false;
+   }
+   else {
+     setTableAvailable(tableNotAvailableHtml);
+     bookingSubmitButton.disabled = true;
+   }
+  }
+  
+  if (timeLate.checked === true) {
+    if (lateSeating < 15) {
+      bookingSubmitButton.disabled = false;
+      setTableAvailable(tableAvailableHtml)
+   }
+   else {
+    bookingSubmitButton.disabled = true;
+     setTableAvailable(tableNotAvailableHtml);
+   }
+  }
+  }
+  if (updatedBooking.date) {
+    displayEarlyAvailability();
+  }
+  
+  }, [effectTrain])
+
 
 
     async function getCustomerInfo (){
@@ -124,7 +198,13 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           },3500)
           
         };
-
+   
+        useEffect(() => {
+          if (showBookingForm === false) {
+            setTableAvailable(<div></div>)
+          }
+         
+        }, [showBookingForm])
 
     if (!booking) {
       return <div>Booking not found</div>;
@@ -157,11 +237,12 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           <label htmlFor="time1">18:00</label>
           <input type="radio" id="time2" name="time" value="21:00" required onChange={handleInputChangeBooking}></input>
           <label htmlFor="time2">21:00</label>
+          {tableAvailable}
           </div>
           <label htmlFor="numPeople">Guests</label>
           <input type="number" id="numPeople" min="1" max="6" name="numberOfGuests" onChange={handleInputChangeBooking}></input>
           <div className="buttonContaienrBookingForm">
-          <Button type="submit" border="1px solid white" color="green" width="250px" textColor="white"> Update</Button>
+          <Button type="submit" border="1px solid white" color="green" width="250px" textColor="white" id="bookingSubmitButton"> Update</Button>
           <Button type="button" border="1px solid white" color="red" width="250px" textColor="white" onClick={()=>{setshowBookingForm(false);
           console.log(`Cancelled update on: ${booking._id}`)}}> Cancel</Button>
           </div>

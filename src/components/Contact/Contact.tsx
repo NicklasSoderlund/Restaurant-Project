@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Button } from '../styled/Button';
 import './contact.scss';
-import fireVideo from "./Assets/fireVideo.mp4";
+import fireVideo from "../../videos/fireVideo.mp4";
 
 
 export function Contact() {
