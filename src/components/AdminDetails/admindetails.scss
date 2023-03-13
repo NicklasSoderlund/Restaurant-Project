@@ -5,6 +5,12 @@
     justify-content: center;
     flex-wrap: wrap;
     margin-top:150px;
+    .titleContainer{
+        width:100%;
+        h3{
+            text-align: center;
+        }
+    }
 
     .bookingDetailsInfo{
         h3{
@@ -85,6 +91,7 @@
         justify-content: center;
         width:100%;
         padding:50px;
+        gap:30px;
     }
     .updateCustomerButtonContainer{
         display:flex;

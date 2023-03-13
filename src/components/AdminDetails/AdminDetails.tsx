@@ -27,7 +27,8 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [showCustomerForm,setshowCustomerForm] = useState(false);
     const [updatedCustomer, setupdatedCustomer] = useState<{name:string,lastName:string,email:string,phone:string}>({name:"",lastName:"",email:"",phone:"",});
     const [booking, setBooking] = useState<IBooking>();
-
+    const [showCustomerConfirmation,setshowCustomerConfirmation] = useState(false);
+    const [showBookingConfirmation,setshowBookingConfirmation] = useState(false);
 
 
     useEffect(() => {
@@ -83,7 +84,11 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       console.log(updatedBookingData);
       setshowBookingForm(false);
       setBooking(updatedBookingDataForState as IBooking);
-      // window.location.reload()
+      setshowBookingConfirmation(true);
+
+      setTimeout(()=>{
+        setshowBookingConfirmation(false);
+      },3500)
     }
 
     const handleInputChangeBooking = (event:React.ChangeEvent<HTMLInputElement>) => {
@@ -109,10 +114,10 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           axios.put(`https://school-restaurant-api.azurewebsites.net/customer/update/${customerId}`,updatedCustomerData);
           setshowCustomerForm(false);
           setCustomer(updatedCustomerData);
-          setCustomerConfirmation(true);
+          setshowCustomerConfirmation(true);
 
           setTimeout(()=>{
-            setCustomerConfirmation(false);
+            setshowCustomerConfirmation(false);
           },3500)
           
         };
@@ -123,7 +128,9 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     }
     return (
       <div className="bookingDetailsContainer">
+        <div className="titleContainer"><h3>Configure Booking</h3></div>
         <div className="bookingDetailsInfo"><h3> Booking Details</h3>
+        {showBookingConfirmation?<div className="confirmation"> Booking Updated </div>:null}
         <p >Booking id: {booking._id}</p>
         <p>Customer id: {booking.customerId}</p>
         <p>Date: {booking.date}</p>
@@ -193,10 +200,12 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         </div>:null}
         </div>
         <div className="buttonContainer">
+        <Link to="/admin"> <Button border="" color="#C67B47" width="250px" textColor="white">All bookings</Button></Link> 
     <Link to="/admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
                 props.removeBooking(bookingId as string);
                 }}>Remove booking</Button>  </Link> 
+                
                 </div>
       </div>
     );

@@ -13,17 +13,22 @@ export function Admin() {
     const Bookings = useContext(BookingsContext);
 
     
-    useEffect(() => {
-        setContextBookings(Bookings);
+    // useEffect(() => {
+    //     setContextBookings(Bookings);
+    //   }, [Bookings]);
+
+
+      useEffect(() => {
+        const sortedBookings = Bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        setContextBookings(sortedBookings);
+        console.log(sortedBookings);
       }, [Bookings]);
-
-
 
     return (
         
         <div className="BookingsContainer">
             <div className="titleContainer">
-            <h3>Hantera bokningar</h3>
+            <h3>All bookings</h3>
             </div>
             {contextBookings.map((booking)=>(
                 <Link className="bookingContainerLink" key={booking._id} to={`/admin/${booking._id}`}>
