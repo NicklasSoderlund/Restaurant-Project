@@ -39,6 +39,7 @@
         width:40%;
         border:1px solid grey;
         padding:15px;
+
     }
     .buttonContainer{
         display: flex;
@@ -46,5 +47,21 @@
         justify-content: center;
         width:100%;
         padding:50px;
+    }
+    .updateCustomerButtonContainer{
+        display:flex;
+        justify-content: center;
+    }
+    .updateCustomerContainer{
+        display: flex;
+        justify-content: center;
+        width:100%;
+        form{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            width:100%;
+            flex-wrap: wrap;
+            }
     }
 }        
