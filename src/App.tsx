@@ -10,6 +10,7 @@ import { Footer } from './components/Footer/Footer';
 import { fetchBookings, IBooking } from './Services/fetchBookings';
 import { AdminDetails } from './components/AdminDetails/AdminDetails';
 import { BookingConfirmation } from './components/BookingConfirmation/BookingConfirmation';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 interface IBookingsContext {
@@ -33,6 +34,10 @@ function App() {
     current.filter((booking) => booking._id !== bookingId));
 
   }
+
+  function bookingRemoved() {
+    toast("Booking Removed!")
+}
    
   
   useEffect(() =>  {
@@ -53,12 +58,14 @@ function App() {
       <Route path="/booking" element={<Booking></Booking>}></Route>
       <Route path="/contact" element={<Contact></Contact>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
-      <Route path="/admin/:bookingId" element={<AdminDetails removeBooking={removeBooking}></AdminDetails>}></Route>
+      <Route path="/admin/:bookingId" element={<AdminDetails bookingRemoved={bookingRemoved} removeBooking={removeBooking}></AdminDetails>}></Route>
       <Route path="*" element={<h3>Page not found</h3>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
+    <ToastContainer></ToastContainer>
     </BookingsContext.Provider>
+   
   );
 }
 
