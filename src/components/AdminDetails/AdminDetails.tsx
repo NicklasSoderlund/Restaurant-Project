@@ -47,7 +47,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
 
     useEffect(() => {
       props.reloadBookings();
-   }, [updatedBooking])
+   }, [booking])
      
 
     useEffect(() => {
@@ -81,7 +81,6 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       };
     
       axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${bookingId}`,updatedBookingData)  
-      console.log(updatedBookingData);
       setshowBookingForm(false);
       setBooking(updatedBookingDataForState as IBooking);
       setshowBookingConfirmation(true);
@@ -91,10 +90,13 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       },3500)
     }
 
+    useEffect(() => {
+      props.reloadBookings();
+    }, [showBookingConfirmation])
+
     const handleInputChangeBooking = (event:React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
       setUpdatedBooking({ ...updatedBooking, [name]: value });
-      console.log(updatedBooking);
     };
 
     const handleInputChangeCustomer = (event:React.ChangeEvent<HTMLInputElement>)=>{

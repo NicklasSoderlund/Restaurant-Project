@@ -45,6 +45,7 @@ function App() {
        localStorage.setItem("bookings", JSON.stringify(bookingsFromApi))
     }
     getBookings();
+    console.log("IT works!")
  }, [reloadBookingsTrigger])
 
 
