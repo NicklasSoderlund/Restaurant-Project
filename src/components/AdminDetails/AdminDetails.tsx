@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { BookingsContext } from "../../App";
 import { Button } from "../styled/Button";
 import "./admindetails.scss";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface ICustomer {
     id:string;
