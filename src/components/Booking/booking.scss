@@ -79,10 +79,16 @@ button{
   .tableAvailable {
     color: green;
     text-align: center;
+    border: 2px solid green;
+    padding: 5px;
+    font-weight: bold;
   }
   .tableNotAvailable {
     color: red;
     text-align: center;
+    border: 2px solid red;
+    padding: 5px;
+    font-weight: bold;
   }
   .bookingVideoContainer {
     position: absolute;
