@@ -94,6 +94,7 @@
         display: flex;
         justify-content: center;
         width:100%;
+        
         form{
             margin:15px;
             display:flex;
@@ -120,6 +121,10 @@
             flex-direction: row;
         }    
         }
-
+        
     }
 }        
+.confirmation{
+    color:green;  
+text-align: center;
+   }

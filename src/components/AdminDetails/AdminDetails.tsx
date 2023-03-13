@@ -24,6 +24,8 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [updatedBooking, setUpdatedBooking] = useState<{ date: string, time: string, numberOfGuests: number }>({ date: "", time: "", numberOfGuests: 1 });
     const [showCustomerForm,setshowCustomerForm] = useState(false);
     const [updatedCustomer, setupdatedCustomer] = useState<{name:string,lastName:string,email:string,phone:string}>({name:"",lastName:"",email:"",phone:"",});
+    const [showCustomerConfirmation,setCustomerConfirmation] = useState(false);
+    
     async function getCustomerInfo (){
         let response = await axios.get(`https://school-restaurant-api.azurewebsites.net/customer/${booking?.customerId}`)
         setCustomer(response.data[0]);
@@ -76,10 +78,15 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
             email:updatedCustomer.email,
             phone:updatedCustomer.phone,
           }
-          console.log(updatedCustomerData);
           axios.put(`https://school-restaurant-api.azurewebsites.net/customer/update/${customerId}`,updatedCustomerData);
           setshowCustomerForm(false);
-          window.location.reload()
+          setCustomer(updatedCustomerData);
+          setCustomerConfirmation(true);
+
+          setTimeout(()=>{
+            setCustomerConfirmation(false);
+          },3500)
+          
         };
 
 
@@ -124,6 +131,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         </div>:null}
         </div>
         <div className="bookingDetailsCustomer"> <h3>Customer Details</h3>
+        {showCustomerConfirmation?<div className="confirmation"> Customer Updated </div>:null}
         <p>Customer id: {booking.customerId}</p>
         <p>Firstname: {customer?.name} </p>
         <p>Lastname: {customer?.lastname} </p>
