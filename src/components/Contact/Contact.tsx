@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Button } from '../styled/Button';
 import './contact.scss';
 import fireVideo from "../../videos/fireVideo.mp4";
