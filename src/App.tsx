@@ -42,7 +42,7 @@ function App() {
     toast("Booking Removed!")
 }
    
-  
+
   useEffect(() =>  {
     async function getBookings() {
        let bookingsFromApi = await fetchBookings();
