@@ -148,7 +148,7 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
       <div>
    
       <h2>Book a table!</h2>
-      <h3>Please notice that you can only book up to 6 persons per reservation.</h3>
+      <h3>Please notice that you can only book up to 6 people per reservation.</h3>
     <div className='FormContainer'>
     <form onSubmit={handleSubmit}>
       
