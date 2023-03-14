@@ -160,6 +160,20 @@ if (date) {
      
 
 }
+
+   <div className='cancelBooking'>
+
+    <div className='cancelBookingContent'>
+         <h3>Change of plans?</h3>
+         <p>Enter your Booking ID here to Cancel your reservation</p>
+
+         <form action="">
+          <label htmlFor="bookingIdInput">Booking ID:</label>
+          <input type="text" id="bookingIdInput" />
+         </form>
+    </div>
+
+   </div>
 <div className='bookingVideoContainer'>
             <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
                 <source src={steakVideo} type="video/mp4" />
