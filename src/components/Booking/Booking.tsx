@@ -7,10 +7,17 @@ import { BookingConfirmation } from '../BookingConfirmation/BookingConfirmation'
 import { Button } from '../styled/Button';
 import './booking.scss';
 import steakVideo from './Assets/steakVideo.mp4';
+import axios from 'axios';
+import { CancelBookingConfirmation } from '../CancelBookingConformation/CancelBookingConfirmation';
 
-interface BookingFormProps {}
+// interface BookingFormProps {}
 
-function BookingForm(props: BookingFormProps): JSX.Element {
+// function BookingForm(props: BookingFormProps): JSX.Element
+interface IBookingProps {
+  removeBooking(bookingId:string): void,
+}
+
+export function Booking(props:IBookingProps) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
@@ -30,6 +37,8 @@ function BookingForm(props: BookingFormProps): JSX.Element {
   const tableNotAvailableHtml = <div className='tableNotAvailable'>No tables are available at this time!</div>
 
   const [effectTrain, setEffectTrain] = useState(false)
+
+  const [cancelBookingId, setCancelBookingId] = useState("");
 
 
 
@@ -105,7 +114,28 @@ if (date) {
 
   };
 
+  function changeShowCanceled() {
+    setShowBookingCanceled(false);
+  }
+  
+  let inputField = document.getElementById("bookingIdInput")
+  const [showBookingCanceled, setShowBookingCanceled] = useState(false);
+  const [showError, setShowError] = useState(false);
+function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault()
 
+  if (bookings.find(booking => booking._id === cancelBookingId)) {
+    axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${cancelBookingId}`);
+    props.removeBooking(cancelBookingId as string);
+    setShowBookingCanceled(true);
+    setShowError(false);
+  }
+
+ else {
+  setShowError(true);
+ }
+
+}
 
 
   return (
@@ -163,16 +193,21 @@ if (date) {
 
    <div className='cancelBooking'>
 
+    {showBookingCanceled ? <CancelBookingConfirmation changeShowCanceled={changeShowCanceled}></CancelBookingConfirmation>
+    :
+
     <div className='cancelBookingContent'>
          <h3>Change of plans?</h3>
          <p>Enter your Booking ID here to Cancel your reservation</p>
 
-         <form action="">
+         <form action="" onSubmit={handleCancelation}>
           <label htmlFor="bookingIdInput">Booking ID:</label>
-          <input type="text" id="bookingIdInput" />
+          <input type="text" id="bookingIdInput" value={cancelBookingId} onChange={(e) => setCancelBookingId(e.target.value)}/>
+          {showError ? <div className='bookingNotFound'> Booking Not Found! </div> : null }
+          <Button type='submit' border='' color='' textColor='' width='15em' >Cancel Reservation</Button>
          </form>
     </div>
-
+}
    </div>
 <div className='bookingVideoContainer'>
             <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
@@ -180,11 +215,12 @@ if (date) {
             </video>
         </div>
 
+
     </section>
 
   );
 }
 
-export function Booking(): JSX.Element {
-  return <BookingForm />;
-}
+// export function Booking(): JSX.Element {
+//   return <BookingForm />;
+// }
