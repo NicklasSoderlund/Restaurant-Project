@@ -32,21 +32,30 @@ export function Admin() {
     let bookings = contextBookings;
 
     if (searchTerm) {
-      bookings = bookings.filter(booking => booking._id.toLowerCase().includes(searchTerm.toLowerCase()));
+      bookings = bookings.filter(
+        (booking) =>
+          booking._id.toLowerCase().includes(searchTerm.toLowerCase())
+      );
     }
 
     if (selectedDate) {
-      bookings = bookings.filter(booking => new Date(booking.date).toLocaleDateString() === selectedDate.toLocaleDateString());
+      bookings = bookings.filter(
+        (booking) =>
+          new Date(booking.date).toLocaleDateString() ===
+          selectedDate.toLocaleDateString()
+      );
     }
 
     if (selectedTime) {
-      bookings = bookings.filter(booking => booking.time === selectedTime);
+      bookings = bookings.filter((booking) => booking.time === selectedTime);
     }
 
     setFilteredBookings(bookings);
   }, [contextBookings, searchTerm, selectedDate, selectedTime]);
 
-  const handleSearchTermChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchTermChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSearchTerm(event.target.value);
   };
 
@@ -56,7 +65,9 @@ export function Admin() {
     setSelectedTime(null);
   };
 
-  const handleTimeFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTimeFilterChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSelectedTime(event.target.value);
   };
 
@@ -64,33 +75,60 @@ export function Admin() {
     <div className="BookingsContainer">
       <div className="filters">
         <div className="search">
-          <input type="text" id="search" placeholder="Search by booking id:" value={searchTerm} onChange={handleSearchTermChange} />
+          <input
+            type="text"
+            id="search"
+            placeholder="Search by booking id:"
+            value={searchTerm}
+            onChange={handleSearchTermChange}
+          />
         </div>
         <div className="date">
           <DatePicker
             placeholderText="Date"
             selected={selectedDate}
-            onChange={date => setSelectedDate(date)}
+            onChange={(date) => setSelectedDate(date)}
             dateFormat="yyyy/MM/dd"
             className="date-input"
           />
-          
         </div>
         <div className="time">
-          <label htmlFor="time">Filter by time:</label>
-          <select name="time" id="time" value={selectedTime ?? ''} onChange={handleTimeFilterChange}>
-            <option value="">--Select--</option>
-            <option value="18:00">18:00</option>
-            <option value="21:00">21:00</option>
-          </select>
-          <Button border="" color="#C67B47" width="120px" textColor="white" onClick={handleFilterClick}>
+          <label>Filter by time:</label>
+            <label>18:00
+              <input
+                type="radio"
+                name="time"
+                value="18:00"
+                checked={selectedTime === "18:00"}
+                onChange={handleTimeFilterChange}
+              />
+            </label>
+            <label>21:00
+              <input
+                type="radio"
+                name="time"
+                value="21:00"
+                checked={selectedTime === "21:00"}
+                onChange={handleTimeFilterChange}
+              />
+              
+            </label>
+          <Button
+            border=""
+            color="#C67B47"
+            width="120px"
+            textColor="white"
+            onClick={handleFilterClick}
+          >
             Clear
           </Button>
         </div>
       </div>
-            {filteredBookings.map((booking)=>(
-                <Link key={booking._id} to={`/admin/${booking._id}`}>
-                    <div key={booking._id} className="bookingcontainer" onClick={()=>{
+      {filteredBookings.map((booking) => (
+        <Link key={booking._id} to={`/admin/${booking._id}`}>
+          <div
+            key={booking._id}
+            className="bookingcontainer" onClick={()=>{
                         console.log(booking._id);
                     }}>
                         <p>Booking id: {booking._id}</p>
