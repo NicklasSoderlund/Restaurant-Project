@@ -12,11 +12,6 @@ export function Admin() {
     const [contextBookings,setContextBookings] = useState<IBooking[]>([]);
     const Bookings = useContext(BookingsContext);
 
-    
-    // useEffect(() => {
-    //     setContextBookings(Bookings);
-    //   }, [Bookings]);
-
 
       useEffect(() => {
         const sortedBookings = Bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
