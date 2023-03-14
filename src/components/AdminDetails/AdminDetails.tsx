@@ -233,14 +233,16 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         <form onSubmit={(event) => handleBookingSubmit(event, booking._id,booking.customerId)}>
           <label htmlFor="date">Date:</label>
           <input type="date" id="date" required name="date" onChange={handleInputChangeBooking}></input>
-          <div className="seatingContainer">
+          {/* <div className="seatingContainer"> */}
           <label htmlFor="time">Seating:</label>
+          <div className="firstRadio">
           <input type="radio" id="time1" name="time" value="18:00" required  onChange={handleInputChangeBooking}></input>
           <label htmlFor="time1">18:00</label>
           <input type="radio" id="time2" name="time" value="21:00" required onChange={handleInputChangeBooking}></input>
           <label htmlFor="time2">21:00</label>
-          {tableAvailable}
           </div>
+          {tableAvailable}
+          {/* </div> */}
           <label htmlFor="numPeople">Guests</label>
           <input type="number" id="numPeople" min="1" max="6" name="numberOfGuests" onChange={handleInputChangeBooking}></input>
           <div className="buttonContaienrBookingForm">
