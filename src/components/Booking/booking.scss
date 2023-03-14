@@ -97,3 +97,33 @@ button{
     z-index: -1;
     opacity: 20%;
 }
+
+.cancelBooking {
+
+  .cancelBookingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+
+
+    p {
+      margin-top: 0;
+      margin-bottom: 2em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap:1em;
+    }
+
+    .bookingNotFound {
+      color: red;
+      font-weight: bold;
+    }
+  }
+}
+
