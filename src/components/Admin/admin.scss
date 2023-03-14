@@ -1,4 +1,10 @@
 .BookingsContainer{
+    .titleContainer{
+        width: 100%;
+        h3{
+            text-align: center;
+        }
+    }
 display:flex;
 flex-wrap: wrap;
 width:100%;
@@ -6,18 +12,24 @@ gap:10px;
 height:100%;
 justify-content: center;
 margin: 7em 0 2.5em 0;
+
 }
-.bookingcontainer{
-    display: flex;
-    flex-direction: column;
-    height:250px;
-    align-items: center;
-    justify-content: center;
-    background-color: #212121;
-    font-size: 15px;
-    padding:15px;
+.bookingContainerLink {
+    width:30%;
+    .bookingcontainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #212121;
+        font-size: 18px;
+        padding:15px;
+        
+    }
 }
+
 .bookingcontainer:hover {
     transform: scale(1.05);
+    border: 1px solid white;
     cursor: pointer;
    }

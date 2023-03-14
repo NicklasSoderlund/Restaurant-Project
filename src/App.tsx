@@ -24,15 +24,18 @@ const apiId = "64088bb976187b915f68e167";
 export const BookingsContext = createContext<IBooking[]>([])
 
 
-
 function App() {
 
   const [bookings, setBookings] = useState<IBooking[]>([]);
+  const [reloadBookingsTrigger, setReloadBookingsTrigger] = useState(false);
 
   function removeBooking(bookingId:string) {
     setBookings((current) =>
     current.filter((booking) => booking._id !== bookingId));
+  }
 
+  function reloadBookings() {
+    setReloadBookingsTrigger(!reloadBookingsTrigger)
   }
 
   function bookingRemoved() {
@@ -44,9 +47,11 @@ function App() {
     async function getBookings() {
        let bookingsFromApi = await fetchBookings();
        setBookings(bookingsFromApi)
+       localStorage.setItem("bookings", JSON.stringify(bookingsFromApi))
     }
     getBookings();
- }, [])
+    console.log("IT works!")
+ }, [reloadBookingsTrigger])
 
 
   return (
@@ -58,7 +63,9 @@ function App() {
       <Route path="/booking" element={<Booking></Booking>}></Route>
       <Route path="/contact" element={<Contact></Contact>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
-      <Route path="/admin/:bookingId" element={<AdminDetails bookingRemoved={bookingRemoved} removeBooking={removeBooking}></AdminDetails>}></Route>
+
+      <Route path="/admin/:bookingId" element={<AdminDetails reloadBookings={reloadBookings} removeBooking={removeBooking}></AdminDetails>}></Route>
+
       <Route path="*" element={<h3>Page not found</h3>}></Route>
       </Routes>
       <Footer></Footer>

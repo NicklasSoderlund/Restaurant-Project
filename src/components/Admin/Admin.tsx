@@ -12,22 +12,26 @@ export function Admin() {
     const [contextBookings,setContextBookings] = useState<IBooking[]>([]);
     const Bookings = useContext(BookingsContext);
 
-    
-    useEffect(() => {
-        setContextBookings(Bookings);
+
+      useEffect(() => {
+        const sortedBookings = Bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+        setContextBookings(sortedBookings);
+        console.log(sortedBookings);
       }, [Bookings]);
-
-
 
     return (
         
         <div className="BookingsContainer">
+            <div className="titleContainer">
+            <h3>All bookings</h3>
+            </div>
             {contextBookings.map((booking)=>(
-                <Link key={booking._id} to={`/admin/${booking._id}`}>
+                <Link className="bookingContainerLink" key={booking._id} to={`/admin/${booking._id}`}>
                 <div key={booking._id} className="bookingcontainer" onClick={()=>{
                 console.log(booking._id)
                 }}>
                 <p>Booking id: {booking._id}</p>
+                <p>Customer id: {booking.customerId}</p>
                 <p>Date: {booking.date}</p>
                 <p>Time: {booking.time}</p>
                 <p>Guests: {booking.numberOfGuests}</p>

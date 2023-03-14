@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '../styled/Button';
 import './startPage.scss';
 import React from 'react';
-import fireVideo from "./Assets/fireVideo.mp4";
-import steakVideo from "./Assets/steak-16406.mp4"
+import fireVideo2 from "../../videos/fireVideo.mp4";
+import steakVideo from "../../videos/steakVideoBig.mp4";
 
 export function StartPage() {
 return <div>
@@ -33,7 +33,7 @@ return <div>
         
         <div className='videoContainer'>
             <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
-                <source src={fireVideo} type="video/mp4" />
+                <source src={fireVideo2} type="video/mp4" />
             </video>
         </div>
 
