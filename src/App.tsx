@@ -64,7 +64,7 @@ function App() {
       <Route path="/contact" element={<Contact></Contact>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
 
-      <Route path="/admin/:bookingId" element={<AdminDetails reloadBookings={reloadBookings} removeBooking={removeBooking}></AdminDetails>}></Route>
+      <Route path="/admin/:bookingId" element={<AdminDetails bookingRemoved={bookingRemoved} reloadBookings={reloadBookings} removeBooking={removeBooking}></AdminDetails>}></Route>
 
       <Route path="*" element={<h3>Page not found</h3>}></Route>
       </Routes>
