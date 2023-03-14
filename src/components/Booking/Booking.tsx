@@ -4,7 +4,9 @@ import { BookingsContext } from '../../App';
 import { createBooking } from '../../Services/createBookings';
 import { fetchBookings, IBooking } from '../../Services/fetchBookings';
 import { BookingConfirmation } from '../BookingConfirmation/BookingConfirmation';
+import { Button } from '../styled/Button';
 import './booking.scss';
+import steakVideo from './Assets/steakVideo.mp4';
 
 interface BookingFormProps {}
 
@@ -116,18 +118,14 @@ if (date) {
     <div className='FormContainer'>
     <form onSubmit={handleSubmit}>
       
-      <label htmlFor="firstName">First Name:</label>
-      <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
-      <label htmlFor="lastName">Last Name</label>
-      <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+      <input type="text" id="firstName" placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+
+      <input type="text" id="lastName" placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
        
-      <label htmlFor="phone">Phone:</label>
-      <input type="string" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+      <input type="string" id="phone" placeholder='Phone' value={phone} onChange={(e) => setPhone(e.target.value)} required />
 
-      <label htmlFor="email">Email:</label>
-      <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <input type="email" id="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-      <label htmlFor="date">Date:</label>
       <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} required />
       <div className='timeContainer'>
       <label htmlFor="numPeople">Amount of guests:</label>
@@ -156,11 +154,16 @@ if (date) {
     </div>
        
     </div>
+    
      
      
 
 }
-
+<div className='bookingVideoContainer'>
+            <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
+                <source src={steakVideo} type="video/mp4" />
+            </video>
+        </div>
 
     </section>
 

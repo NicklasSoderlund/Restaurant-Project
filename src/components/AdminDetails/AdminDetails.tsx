@@ -16,6 +16,8 @@ import { IBooking } from "../../Services/fetchBookings";
 interface IAdminDetailsProps {
   removeBooking(bookingId:string): void,
   reloadBookings() : void
+  bookingRemoved() : void
+
 }
 
 export const AdminDetails= (props: IAdminDetailsProps)=>{
@@ -288,6 +290,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     <Link to="/admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
                 props.removeBooking(bookingId as string);
+                props.bookingRemoved();
                 }}>Remove booking</Button>  </Link> 
                 
                 </div>
