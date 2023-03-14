@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    text-align: center;
     h2 {
       color: #C67B47;
       font-size: 2.5em;
@@ -11,6 +12,8 @@
     }
     h3 {
       color: #C67B47;
+      width: 80%;
+      margin: 1em auto;
     }
 }
 .FormContainer {
@@ -127,3 +130,11 @@ button{
   }
 }
 
+.fiftyPercent {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: unset;
+}

@@ -139,13 +139,16 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
 
 
   return (
-    
+    <>
+  
     <section className='Booking'>
+
+      <section className='fiftyPercent'>
       {bookingId ? <BookingConfirmation bookingId={bookingId}></BookingConfirmation> :
       <div>
    
       <h2>Book a table!</h2>
-      <h3>Please notice that you can only book up to 6 person per reservation.</h3>
+      <h3>Please notice that you can only book up to 6 persons per reservation.</h3>
     <div className='FormContainer'>
     <form onSubmit={handleSubmit}>
       
@@ -186,11 +189,9 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
        
     </div>
     
-     
-     
-
 }
-
+</section>
+<section className='fiftyPercent'>
    <div className='cancelBooking'>
 
     {showBookingCanceled ? <CancelBookingConfirmation changeShowCanceled={changeShowCanceled}></CancelBookingConfirmation>
@@ -209,16 +210,20 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
     </div>
 }
    </div>
-<div className='bookingVideoContainer'>
-            <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
-                <source src={steakVideo} type="video/mp4" />
-            </video>
-        </div>
+
 
 
     </section>
 
+    </section>
+    <div className='bookingVideoContainer'>
+            <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
+                <source src={steakVideo} type="video/mp4" />
+            </video>
+        </div>
+    </>
   );
+ 
 }
 
 // export function Booking(): JSX.Element {
