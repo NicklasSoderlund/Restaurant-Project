@@ -238,12 +238,14 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           <div className="firstRadio">
           <input type="radio" id="time1" name="time" value="18:00" required  onChange={handleInputChangeBooking}></input>
           <label htmlFor="time1">18:00</label>
+          </div>
+          <div className="firstRadio">
           <input type="radio" id="time2" name="time" value="21:00" required onChange={handleInputChangeBooking}></input>
           <label htmlFor="time2">21:00</label>
           </div>
           {tableAvailable}
           {/* </div> */}
-          <label htmlFor="numPeople">Guests</label>
+          <label htmlFor="numPeople">Guests:</label>
           <input type="number" id="numPeople" min="1" max="6" name="numberOfGuests" onChange={handleInputChangeBooking}></input>
           <div className="buttonContaienrBookingForm">
           <Button type="submit" border="1px solid white" color="green" width="250px" textColor="white" id="bookingSubmitButton"> Update</Button>
