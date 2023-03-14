@@ -15,7 +15,7 @@ return <div>
             <h3>Welcome to Jucius Steaksar</h3>
             <div className="buttoncontainer">
             <Link to={"/Booking"}>  <Button color='#f89956' width='11em' textColor='black' border='3px solid black'>Book a table</Button> </Link>
-            <Link to={"/Contact"}>   <Button color='' width='11em' textColor='' border='3px solid white'>Contact us</Button> </Link>
+            <Link to={"/Contact"}>   <Button color='' width='11em' textColor='' border=' 3px solid #f89956'>Contact us</Button> </Link>
             </div>
             </div>
         </div>
@@ -26,8 +26,8 @@ return <div>
             </img>
         </div>
         <div className="container">
-            <p>Looking for a top-notch steakhouse experience? Look no further than Jucius Steakcar. From the moment you step through our doors, you'll be greeted by our warm and welcoming staff, who are dedicated to making your dining experience unforgettable. Our elegant decor sets the perfect mood for a special occasion or a romantic night out, while our extensive wine list and craft cocktail menu make for the perfect complement to your meal.</p>
-            <p>At Jucius Steakcar, we believe that quality ingredients make all the difference. That's why we source our beef from the finest ranches and farms, ensuring that every cut is of the highest quality. And it's not just our steaks that are top-notch - our menu is filled with delicious appetizers, salads, and sides that are made with the freshest ingredients available. Come taste the difference for yourself at Jucius Steakcar.</p>
+            <p>Looking for a top-notch steakhouse experience? Look no further than Jucius Steaksar. From the moment you step through our doors, you'll be greeted by our warm and welcoming staff, who are dedicated to making your dining experience unforgettable. Our elegant decor sets the perfect mood for a special occasion or a romantic night out, while our extensive wine list and craft cocktail menu make for the perfect complement to your meal.</p>
+            <p>At Jucius Steaksar, we believe that quality ingredients make all the difference. That's why we source our beef from the finest ranches and farms, ensuring that every cut is of the highest quality. And it's not just our steaks that are top-notch - our menu is filled with delicious appetizers, salads, and sides that are made with the freshest ingredients available. Come taste the difference for yourself at Jucius Steaksar.</p>
         </div>
         </div>
         
