@@ -126,14 +126,14 @@ export function Admin() {
       </div>
 
       {filteredBookings.map((booking) => (
-        <Link key={booking._id} to={`/admin/${booking._id}`}>
+        <Link className="bookingLink" key={booking._id} to={`/admin/${booking._id}`}>
           <div
             key={booking._id}
             className="bookingcontainer" onClick={()=>{
 
                         console.log(booking._id);
                     }}>
-                        <p>Booking id: {booking._id}</p>
+                        <p className="bookingIdTitle">Booking id: <span>{booking._id}</span></p>
                         <p>Date: {booking.date}</p>
                         <p>Time: {booking.time}</p>
                         <p>Guests: {booking.numberOfGuests}</p>

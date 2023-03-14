@@ -16,10 +16,9 @@
         h3{
             text-align: center;
         }
-        
+        height: fit-content;
         margin:15px;
         width: 40%;
-        
         border:1px solid grey;
         padding:15px;
         .updateBookingButtonContainer{
@@ -27,6 +26,11 @@
             justify-content: center;
         }
         .updateBookingContainer{
+            min-height: 423px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
             form{
                 margin:15px;
                 display:flex;
@@ -35,7 +39,7 @@
                 width:100%;
                 flex-wrap: wrap;
                 gap:5px;
-                
+
                 
                 #date{
                     width: 210px;
@@ -79,11 +83,12 @@
         h3{
             text-align: center;
         }
-
+        height: fit-content;
         margin:15px;
         width:40%;
         border:1px solid grey;
         padding:15px;
+        height: fit-content;
 
     }
     .buttonContainer{
@@ -166,6 +171,7 @@ text-align: center;
     }
     
   }
+}
   
   .firstRadio {
     display: flex;
