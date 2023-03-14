@@ -107,6 +107,7 @@ if (date) {
 
 
 
+
   return (
     
     <section className='Booking'>
@@ -149,7 +150,7 @@ if (date) {
    
       {tableAvailable}
       <br></br>
-   <button id='bookingSubmitButton' type="submit">Book a table</button> 
+    <button id='bookingSubmitButton' type="submit">Book a table</button> 
     </form>
     </div>
        
