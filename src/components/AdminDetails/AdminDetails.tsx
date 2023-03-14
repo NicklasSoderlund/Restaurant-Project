@@ -31,6 +31,9 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [booking, setBooking] = useState<IBooking>();
     const [showCustomerConfirmation,setshowCustomerConfirmation] = useState(false);
     const [showBookingConfirmation,setshowBookingConfirmation] = useState(false);
+    const [loadingBooking,setloadingBooking] = useState(false);
+    const [loadingCustomer,setloadingCustomer] = useState(false);
+
 
     const [earlySeating, setEarlySeating] = useState(0);
     const [lateSeating, setLateSeating] = useState(0);
@@ -159,12 +162,16 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${bookingId}`,updatedBookingData)  
       setshowBookingForm(false);
       setBooking(updatedBookingDataForState as IBooking);
-      setshowBookingConfirmation(true);
-
-      setTimeout(()=>{
-        setshowBookingConfirmation(false);
-      },3500)
+      setloadingBooking(true);
+      setTimeout(() => {
+        setloadingBooking(false);
+        setshowBookingConfirmation(true);
+        setTimeout(() => {
+          setshowBookingConfirmation(false);
+        }, 3500);
+      }, 1000);
     }
+    
 
     useEffect(() => {
       props.reloadBookings();
@@ -193,11 +200,14 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           axios.put(`https://school-restaurant-api.azurewebsites.net/customer/update/${customerId}`,updatedCustomerData);
           setshowCustomerForm(false);
           setCustomer(updatedCustomerData);
-          setshowCustomerConfirmation(true);
-
-          setTimeout(()=>{
-            setshowCustomerConfirmation(false);
-          },3500)
+          setloadingCustomer(true);
+          setTimeout(() => {
+            setloadingCustomer(false);
+            setshowCustomerConfirmation(true);
+            setTimeout(() => {
+              setshowCustomerConfirmation(false);
+            }, 3500);
+          }, 1000);
           
         };
    
@@ -215,6 +225,10 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       <div className="bookingDetailsContainer">
         <div className="titleContainer"><h3>Configure Booking</h3></div>
         <div className="bookingDetailsInfo"><h3> Booking Details</h3>
+        
+        <div className="loadingContainer">
+        {loadingBooking?<div className="lds-dual-ring"></div>:null}
+        </div>
         {showBookingConfirmation?<div className="confirmation"> Booking Updated </div>:null}
         <p >Booking id: {booking._id}</p>
         <p>Customer id: {booking.customerId}</p>
@@ -252,6 +266,9 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         </div>:null}
         </div>
         <div className="bookingDetailsCustomer"> <h3>Customer Details</h3>
+        <div className="loadingContainer">
+        {loadingCustomer?<div className="lds-dual-ring"></div>:null}
+        </div>
         {showCustomerConfirmation?<div className="confirmation"> Customer Updated </div>:null}
         <p>Customer id: {booking.customerId}</p>
         <p>Firstname: {customer?.name} </p>
@@ -264,9 +281,10 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           setshowCustomerForm(false);
             } else {
               setshowCustomerForm(true);
-            }
+            } 
         }}>Update Customerdetails</Button>
         </div>
+
         {showCustomerForm?<div className="updateCustomerContainer">
           <form onSubmit={(event) => handleCustomerSubmit(event, booking.customerId)}>
           <label htmlFor="firstName">Firstname:</label>

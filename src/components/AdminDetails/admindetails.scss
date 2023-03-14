@@ -111,7 +111,6 @@
             flex-wrap: wrap;
             gap:5px;
             input{
-                
                 width: 210px;
                 height: 50px;
                 padding: 0 16px;
@@ -135,3 +134,32 @@
     color:green;  
 text-align: center;
    }
+.loadingContainer{
+    display:flex;
+    justify-content: center;
+   .lds-dual-ring {
+    
+    display: block;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
