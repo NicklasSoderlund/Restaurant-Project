@@ -4,6 +4,8 @@ import "./Footer.scss";
 export const Footer = ()=> {
 
     return (
+
+      
         <footer>
         <div>
             <h4><i className="fa-regular fa-copyright"></i> Jucius Steaksar</h4>
@@ -26,5 +28,6 @@ export const Footer = ()=> {
 <li>New York</li>
 </ul>
 </div>
-    </footer>);
+    </footer>
+  );
 }

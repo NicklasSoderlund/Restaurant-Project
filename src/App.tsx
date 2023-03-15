@@ -29,6 +29,7 @@ function App() {
   const [bookings, setBookings] = useState<IBooking[]>([]);
   const [reloadBookingsTrigger, setReloadBookingsTrigger] = useState(false);
 
+
   function removeBooking(bookingId:string) {
     setBookings((current) =>
     current.filter((booking) => booking._id !== bookingId));
@@ -38,9 +39,6 @@ function App() {
     setReloadBookingsTrigger(!reloadBookingsTrigger)
   }
 
-  function bookingRemoved() {
-    toast("Booking Removed!")
-}
    
 
   useEffect(() =>  {
@@ -58,16 +56,17 @@ function App() {
 <BookingsContext.Provider value={bookings}>
     <BrowserRouter>
         <Nav></Nav>
+        <div className='mainContentContainer'>
     <Routes>
+  
       <Route path="/" element={<StartPage></StartPage>}></Route>
       <Route path="/booking" element={<Booking removeBooking={removeBooking}></Booking>}></Route>
       <Route path="/contact" element={<Contact></Contact>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
-
-      <Route path="/admin/:bookingId" element={<AdminDetails bookingRemoved={bookingRemoved} reloadBookings={reloadBookings} removeBooking={removeBooking}></AdminDetails>}></Route>
-
+      <Route path="/admin/:bookingId" element={<AdminDetails reloadBookings={reloadBookings} removeBooking={removeBooking}></AdminDetails>}></Route>
       <Route path="*" element={<h3>Page not found</h3>}></Route>
       </Routes>
+      </div>
       <Footer></Footer>
     </BrowserRouter>
     <ToastContainer></ToastContainer>
