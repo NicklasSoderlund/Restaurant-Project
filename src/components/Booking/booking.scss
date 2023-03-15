@@ -14,6 +14,7 @@
       color: #C67B47;
       width: 80%;
       margin: 1.5em auto;
+      
     }
 }
 .FormContainer {
@@ -129,6 +130,11 @@ button{
     }
   }
 }
+.mediaQuery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
 .fiftyPercent {
   width: 50%;
@@ -138,3 +144,10 @@ button{
   justify-content: center;
   background-color: unset;
 }
+
+@media screen and (max-width: 720px) {
+    .mediaQuery {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

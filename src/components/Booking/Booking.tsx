@@ -142,7 +142,7 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
     <>
   
     <section className='Booking'>
-
+    <div className='mediaQuery'>
       <section className='fiftyPercent'>
       {bookingId ? <BookingConfirmation bookingId={bookingId}></BookingConfirmation> :
       <div>
@@ -214,7 +214,7 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
 
 
     </section>
-
+    </div>
     </section>
     <div className='bookingVideoContainer'>
             <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
