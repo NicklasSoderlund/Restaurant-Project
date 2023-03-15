@@ -5,6 +5,12 @@
     justify-content: center;
     height: 100vh;
     text-align: center;
+    @media screen and (max-width: 720px) {
+      flex-direction: column;
+      height: fit-content;
+      margin-top: 30vh;
+      margin-bottom: 5vh;
+    }
     h2 {
       color: #C67B47;
       font-size: 2.5em;
@@ -14,7 +20,6 @@
       color: #C67B47;
       width: 80%;
       margin: 1.5em auto;
-      
     }
 }
 .FormContainer {
@@ -130,11 +135,6 @@ button{
     }
   }
 }
-.mediaQuery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
 
 .fiftyPercent {
   width: 50%;
@@ -143,11 +143,6 @@ button{
   align-items: center;
   justify-content: center;
   background-color: unset;
+  @media screen and (max-width: 720px) {
+    width: 80%;}
 }
-
-@media screen and (max-width: 720px) {
-    .mediaQuery {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
