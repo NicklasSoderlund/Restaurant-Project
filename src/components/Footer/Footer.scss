@@ -1,3 +1,5 @@
+
+
 footer{
     color:#C67B47;
     background-color: black;
@@ -8,6 +10,7 @@ footer{
     align-items: center;
     font-size:18px;
     border-top: 1px solid #f89956;
+    margin-top: auto;
     @media screen and (max-width: 720px) {
         flex-direction: column-reverse;
         font-size:12px;
