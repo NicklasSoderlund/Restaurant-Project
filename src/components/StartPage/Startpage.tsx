@@ -37,7 +37,7 @@ return <div>
             </video>
         </div>
 
-       <h2>Menu</h2> 
+       <h2 className='menuTitle'>Menu</h2> 
         <div className='menuContainer'>
 
             <div className="menuContainerFood">

@@ -11,7 +11,7 @@ export const Nav = ()=>{
                 <ul>
                         <NavLink to={"/"} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}><li className="Navigation__Link">Home</li></NavLink>
                         <NavLink to={"/Booking"} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}><li className="Navigation__link">Booking</li></NavLink>
-                        <NavLink to={"/Contact"} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}><li className="Navigation__link">Contact Us</li></NavLink>
+                        <NavLink to={"/Contact"} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}><li className="Navigation__link">Contact</li></NavLink>
                         <NavLink to={"/Admin"} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}><li className="Navigation__link">Admin</li></NavLink>
                 </ul>
             </nav>
