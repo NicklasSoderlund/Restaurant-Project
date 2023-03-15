@@ -7,6 +7,12 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    @media screen and (max-width: 720px) {
+        
+        height: fit-content;
+        margin-top: 30vh;
+        margin-bottom: 5vh;
+      }
 
     .colorClass {
         color: #C67B47;
@@ -63,6 +69,11 @@
             display: flex;
             gap:0.4em;
             margin: 1em 0;
+            @media screen and (max-width: 720px) {
+                flex-direction: column;
+                align-content: center;
+                
+              }
             
         }
 
@@ -71,7 +82,7 @@
             flex-direction: column;
             width: 295px;
             justify-content: space-between;
-        
+            align-items: center;
 
         }
         input {
