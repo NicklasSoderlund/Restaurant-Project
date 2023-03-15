@@ -73,6 +73,7 @@ export function Admin() {
 
   return (
     <div className="BookingsContainer">
+                  <ToastContainer autoClose={7000}></ToastContainer>
       <div className="filters">
         <div className="search">
           <input
@@ -143,7 +144,7 @@ export function Admin() {
                     </div>
                 </Link>
             ))}
-            <ToastContainer autoClose={7000}></ToastContainer>
+
         </div>
     )
 }

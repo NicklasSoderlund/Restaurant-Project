@@ -261,7 +261,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
           {/* </div> */}
           <label htmlFor="numPeople">Guests:</label>
           <input type="number" id="numPeople" min="1" max="6" name="numberOfGuests" onChange={handleInputChangeBooking}></input>
-          <div className="buttonContaienrBookingForm">
+          <div className="buttonContainerBookingForm">
           <Button type="submit" border="1px solid white" color="green" width="250px" textColor="white" id="bookingSubmitButton"> Update</Button>
           <Button type="button" border="1px solid white" color="red" width="250px" textColor="white" onClick={()=>{setshowBookingForm(false);
           console.log(`Cancelled update on: ${booking._id}`)}}> Cancel</Button>
