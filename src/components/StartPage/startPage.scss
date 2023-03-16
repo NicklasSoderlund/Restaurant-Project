@@ -86,8 +86,9 @@ div {
             align-items: center;
             @media screen and (max-width: 1550px) {
                 flex-direction: column;
-                padding-top:5%;
                 width: 100%;
+                justify-content: start;
+                height: fit-content;
              }
             .imageContainer{
                 width:30%;
@@ -107,7 +108,7 @@ div {
             }
             .container{
                 width:50%;
-                @media screen and (max-width: 720px) {
+                @media screen and (max-width: 1550px) {
                     width:80%;
                  }
                 p{
