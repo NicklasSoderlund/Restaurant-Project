@@ -11,6 +11,7 @@ import { fetchBookings, IBooking } from './Services/fetchBookings';
 import { AdminDetails } from './components/AdminDetails/AdminDetails';
 import { BookingConfirmation } from './components/BookingConfirmation/BookingConfirmation';
 import { toast, ToastContainer } from 'react-toastify';
+import NavBar from './components/Nav/Nav2';
 
 
 interface IBookingsContext {
@@ -58,6 +59,7 @@ function App() {
 <BookingsContext.Provider value={bookings}>
     <BrowserRouter>
         <Nav></Nav>
+        <NavBar />
     <Routes>
       <Route path="/" element={<StartPage></StartPage>}></Route>
       <Route path="/booking" element={<Booking removeBooking={removeBooking}></Booking>}></Route>
