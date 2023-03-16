@@ -8,8 +8,7 @@
     @media screen and (max-width: 900px) {
       flex-direction: column;
       height: fit-content;
-      margin-top: 30vh;
-      margin-bottom: 5vh;
+      margin-top: 30%;
     }
     h2 {
       color: #C67B47;
@@ -151,5 +150,6 @@ button{
   justify-content: center;
   background-color: unset;
   @media screen and (max-width: 900px) {
-    width: 80%;}
+    width: 80%;
+  margin-bottom: 15%;}
 }
