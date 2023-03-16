@@ -14,8 +14,8 @@ return <div>
             </div>
             <h3>Welcome to Jucius Steaksar</h3>
             <div className="buttoncontainer">
-            <Link to={"/Booking"}>  <Button color='#f89956' width='11em' textColor='black' border='3px solid black'>Book a table</Button> </Link>
-            <Link to={"/Contact"}>   <Button color='' width='11em' textColor='' border=' 3px solid #f89956'>Contact us</Button> </Link>
+            <Link to={"/Booking"}>  <Button color='#f89956' width='10em' textColor='black' border='3px solid black'>Book a table</Button> </Link>
+            <Link to={"/Contact"}>   <Button color='' width='10em' textColor='' border=' 3px solid #f89956'>Contact us</Button> </Link>
             </div>
             </div>
         </div>

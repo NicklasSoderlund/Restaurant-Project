@@ -11,6 +11,14 @@ footer{
     font-size:18px;
     border-top: 1px solid #f89956;
     margin-top: auto;
+
+    a {
+        color: inherit; 
+        text-decoration: inherit;
+        &:hover {
+            color: #f89956;
+        }
+      }
     @media screen and (max-width: 720px) {
         flex-direction: column-reverse;
         font-size:12px;

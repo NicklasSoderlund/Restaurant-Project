@@ -6,8 +6,15 @@ export const Nav = ()=>{
     
     return (
         <div className="Navigation__container">
+
+            <input type="checkbox" name="" id="" />
+
+            <span></span>
+            <span></span>
+            <span></span>
+
             <nav>        
-                 <Link to={"/"}><h3 className="Navigation__Title"> <img className="Navigation__logo" src="https://i.imgur.com/iRTOsEl.png" alt="bull"></img>Jucius Steaksar</h3></Link>
+               <div className="icon__content">  <Link to={"/"}><h3 className="Navigation__Title"> <img className="Navigation__logo" src="https://i.imgur.com/iRTOsEl.png" alt="bull"></img>Jucius Steaksar</h3></Link> </div>
                 <ul>
                         <NavLink to={"/"} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}><li className="Navigation__Link">Home</li></NavLink>
                         <NavLink to={"/Booking"} className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "active" : ""}><li className="Navigation__link">Booking</li></NavLink>
