@@ -207,7 +207,7 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
 
          <form action="" onSubmit={handleCancelation}>
           <label htmlFor="bookingIdInput">Booking ID:</label>
-          <input type="text" id="bookingIdInput" value={cancelBookingId} onChange={(e) => setCancelBookingId(e.target.value)}/>
+          <input type="text" id="bookingIdInput" value={cancelBookingId} onChange={(e) => setCancelBookingId(e.target.value)} required/>
           {showError ? <div className='bookingNotFound'> Booking Not Found! </div> : null }
           <Button type='submit' border='' color='' textColor='' width='15em' >Cancel Reservation</Button>
          </form>
