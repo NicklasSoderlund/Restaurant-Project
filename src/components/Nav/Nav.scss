@@ -11,8 +11,14 @@ input {
     margin: 0;
 }
     a {
-        color: inherit; 
-        text-decoration: inherit;
+        color: #C67B47; 
+        text-decoration: none;
+        .active {
+          color:white;
+          :hover{
+              color:rgb(185, 185, 185);
+          }
+     }
       }
     
     a:hover{
