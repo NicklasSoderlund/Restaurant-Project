@@ -60,7 +60,7 @@ function App() {
     <Routes>
   
       <Route path="/" element={<StartPage></StartPage>}></Route>
-      <Route path="/booking" element={<Booking removeBooking={removeBooking}></Booking>}></Route>
+      <Route path="/booking" element={<Booking removeBooking={removeBooking} reloadBookings={reloadBookings}></Booking>}></Route>
       <Route path="/contact" element={<Contact></Contact>}></Route>
       <Route path="/admin" element={<Admin></Admin>}></Route>
       <Route path="/admin/:bookingId" element={<AdminDetails reloadBookings={reloadBookings} removeBooking={removeBooking}></AdminDetails>}></Route>

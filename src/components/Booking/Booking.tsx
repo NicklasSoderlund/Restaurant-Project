@@ -15,6 +15,7 @@ import { CancelBookingConfirmation } from '../CancelBookingConformation/CancelBo
 // function BookingForm(props: BookingFormProps): JSX.Element
 interface IBookingProps {
   removeBooking(bookingId:string): void,
+  reloadBookings():void
 }
 
 export function Booking(props:IBookingProps) {
@@ -113,6 +114,10 @@ if (date) {
     getBookingId();
 
   };
+
+  useEffect(() => {
+    props.reloadBookings()
+  }, [bookingId])
 
   function changeShowCanceled() {
     setShowBookingCanceled(false);
