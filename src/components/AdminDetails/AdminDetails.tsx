@@ -28,31 +28,40 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [updatedBooking, setUpdatedBooking] = useState<{ date: string, time: string, numberOfGuests: number }>({ date: "", time: "", numberOfGuests: 1 });
     const [showCustomerForm,setshowCustomerForm] = useState(false);
     const [updatedCustomer, setupdatedCustomer] = useState<{name:string,lastName:string,email:string,phone:string}>({name:"",lastName:"",email:"",phone:"",});
-    let startState = bookings.find(booking => booking._id === bookingId);
-    const [booking, setBooking] = useState<IBooking>(startState as IBooking);
+    
+    // Confirmation / loading states
     const [showCustomerConfirmation,setshowCustomerConfirmation] = useState(false);
     const [showBookingConfirmation,setshowBookingConfirmation] = useState(false);
     const [loadingBooking,setloadingBooking] = useState(false);
     const [loadingCustomer,setloadingCustomer] = useState(false);
-
-
+    
+    //Set the starting state for booking to prevent crash on refresh
+    let startState = JSON.parse(localStorage.getItem("currentBooking") as string)
+    const [booking, setBooking] = useState<IBooking>(startState as IBooking); 
+    const [bookingsFromLs, setBookingsFromLs] = useState<IBooking[]>([])
+     
+    //States for table availability
     const [earlySeating, setEarlySeating] = useState(0);
     const [lateSeating, setLateSeating] = useState(0);
     const [tableAvailable, setTableAvailable] = useState(<div></div>);
     const [effectTrain, setEffectTrain] = useState(false)
-    const [bookingsFromLs, setBookingsFromLs] = useState<IBooking[]>([])
+  
 
+    // HTML presets for if theres an available table or not
     const tableAvailableHtml = <div className='tableAvailable'>Tables are available at this time!</div>
     const tableNotAvailableHtml = <div className='tableNotAvailable'>No tables are available at this time!</div>
     const [bookingRemoved, setBookingRemoved] = useState(false);
 
+   // Make sure im working with the right booking and dont lose it on refresh
     useEffect(() => {
       let LsBookings:IBooking[] = JSON.parse(localStorage.getItem("bookings") as string)
       const startBooking = LsBookings.find(booking => booking._id === bookingId) as IBooking;
       setBooking(startBooking);
       setBookingsFromLs(LsBookings);
     }, [bookingRemoved])
+  
 
+    //Check if theres a table available for selected Date/Time
     useEffect(() => {
       function checkBookingAvailability(userDate:string ) {
         let earlyCounter = 0
@@ -78,7 +87,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
      },[updatedBooking.date, updatedBooking.time])
     
   
-  
+  //Display result from availability check
   useEffect(() => {
     function displayEarlyAvailability() {
   
@@ -115,31 +124,30 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
   }, [effectTrain])
 
 
-
+     //Get customer info for selected booking
     async function getCustomerInfo (){
         let response = await axios.get(`https://school-restaurant-api.azurewebsites.net/customer/${booking?.customerId}`)
         setCustomer(response.data[0]);
         return response.data;
    
     }
-
     useEffect(() => {
-      props.reloadBookings();
-   }, [booking])
-     
-
-    useEffect(() => {
-      console.log(booking)
       if (booking) {
         getCustomerInfo();
       }
     }, [booking]);
     
 
+    useEffect(() => {
+      props.reloadBookings();
+   }, [booking])
+     
 
+
+
+//Handle Update booking submit
     const handleBookingSubmit = (event:React.FormEvent<HTMLFormElement>,bookingId:string,customerId:string) => {
       event.preventDefault();
-      console.log(`Updated booking: ${bookingId}`);
       const updatedBookingData = {
         id: bookingId,
         restaurantId:"64088bb976187b915f68e167",
@@ -171,16 +179,16 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       }, 1000);
     }
     
+    //Handle remove booking
     function handleBookingRemove() {
       setBookingRemoved(true);
       props.reloadBookings()
     }
-
     useEffect(() => {
       props.reloadBookings();
-      console.log("poop");
     }, [showBookingConfirmation])
 
+    //Form input handlers
     const handleInputChangeBooking = (event:React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
       setUpdatedBooking({ ...updatedBooking, [name]: value });
@@ -191,6 +199,7 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       setupdatedCustomer({...updatedCustomer,[name]:value})
     };
     
+    //Handle Customer update submit 
     const handleCustomerSubmit = (event:React.FormEvent<HTMLFormElement>,customerId:string)=>{
       event.preventDefault();
           const updatedCustomerData = {

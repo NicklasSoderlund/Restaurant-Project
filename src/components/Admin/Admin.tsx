@@ -23,6 +23,7 @@ export function Admin() {
     setFilteredBookings(Bookings);
   }, [Bookings]);
 
+  // Filter bookings chronologically from start
   useEffect(() => {
     if (!searchTerm && !selectedDate && !selectedTime) {
       setFilteredBookings(contextBookings);
@@ -31,6 +32,7 @@ export function Admin() {
 
     let bookings = contextBookings;
 
+  // Filter bookings from selections
     if (searchTerm) {
       bookings = bookings.filter(
         (booking) =>
@@ -126,12 +128,12 @@ export function Admin() {
         </div>
       </div>
 
-      {filteredBookings.map((booking) => (
+      {filteredBookings.map((booking, i) => (
         <Link className="bookingLink" key={booking._id} to={`/admin/${booking._id}`}>
           <div
             key={booking._id}
             className="bookingcontainer" onClick={()=>{
-
+                         localStorage.setItem("currentBooking", JSON.stringify(filteredBookings[i]));
                         console.log(booking._id);
                     }}>
                         <p className="bookingIdTitle">Booking id: <span>{booking._id}</span></p>
