@@ -43,7 +43,7 @@ export function Contact() {
             </div>
 
             <div className='contactVideoContainer'>
-            <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
+            <video className='contactVideo' autoPlay loop muted playsInline width={"100%"} height={"auto"}>
                 <source src={fireVideo} type="video/mp4" />
             </video>
         </div>
