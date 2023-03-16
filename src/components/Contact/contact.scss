@@ -7,11 +7,13 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative;
+
     @media screen and (max-width: 720px) {
         
         height: fit-content;
-        margin-top: 30vh;
-        margin-bottom: 5vh;
+        padding-top: 15vh;
+        padding-bottom: 5vh;
       }
 
     .colorClass {
@@ -41,23 +43,13 @@
         font-weight: bold;
     }
 
-    .contact__content__name {
-       
-    }
-    .contact__content__street {
-
-    }
-    .contact__content__phone {
-      
-    }
-
     .contact__buttons {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.5em;
         
-        // margin-right: 0.4em;
+
     }
 
     
@@ -123,10 +115,12 @@
     top:0;
     z-index: -1;
     opacity: 15%;
-    @media screen and (max-width: 999px) {
-        display:none;
-     }
-     @media screen and (min-width: 1000px) {
-        display:block;
-     }
+height: 100%;
+width: 100%;
+
+    .contactVideo {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
 }

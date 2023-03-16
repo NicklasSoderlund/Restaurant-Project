@@ -216,13 +216,13 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
 
 
     </section>
-
-    </section>
     <div className='bookingVideoContainer'>
             <video autoPlay loop muted playsInline width={"100%"} height={"auto"}>
                 <source src={steakVideo} type="video/mp4" />
             </video>
         </div>
+    </section>
+   
     </>
   );
  
