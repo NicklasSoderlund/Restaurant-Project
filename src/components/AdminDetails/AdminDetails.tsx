@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ICustomer } from "../../models/ICustomer";
 import { IBooking } from "../../Services/fetchBookings";
+import { BookingRemoved } from "../BookingRemoved/BookingRemoved";
 
 
 
@@ -16,7 +17,6 @@ import { IBooking } from "../../Services/fetchBookings";
 interface IAdminDetailsProps {
   removeBooking(bookingId:string): void,
   reloadBookings() : void
-  bookingRemoved() : void
 
 }
 
@@ -28,7 +28,8 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [updatedBooking, setUpdatedBooking] = useState<{ date: string, time: string, numberOfGuests: number }>({ date: "", time: "", numberOfGuests: 1 });
     const [showCustomerForm,setshowCustomerForm] = useState(false);
     const [updatedCustomer, setupdatedCustomer] = useState<{name:string,lastName:string,email:string,phone:string}>({name:"",lastName:"",email:"",phone:"",});
-    const [booking, setBooking] = useState<IBooking>();
+    let startState = bookings.find(booking => booking._id === bookingId);
+    const [booking, setBooking] = useState<IBooking>(startState as IBooking);
     const [showCustomerConfirmation,setshowCustomerConfirmation] = useState(false);
     const [showBookingConfirmation,setshowBookingConfirmation] = useState(false);
     const [loadingBooking,setloadingBooking] = useState(false);
@@ -41,18 +42,16 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
     const [effectTrain, setEffectTrain] = useState(false)
     const [bookingsFromLs, setBookingsFromLs] = useState<IBooking[]>([])
 
-    // const [date, setDate] = useState('');
-    // const [time, setTime] = useState('');
-
     const tableAvailableHtml = <div className='tableAvailable'>Tables are available at this time!</div>
     const tableNotAvailableHtml = <div className='tableNotAvailable'>No tables are available at this time!</div>
+    const [bookingRemoved, setBookingRemoved] = useState(false);
 
     useEffect(() => {
       let LsBookings:IBooking[] = JSON.parse(localStorage.getItem("bookings") as string)
       const startBooking = LsBookings.find(booking => booking._id === bookingId) as IBooking;
       setBooking(startBooking);
       setBookingsFromLs(LsBookings);
-    }, [])
+    }, [bookingRemoved])
 
     useEffect(() => {
       function checkBookingAvailability(userDate:string ) {
@@ -172,6 +171,10 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
       }, 1000);
     }
     
+    function handleBookingRemove() {
+      setBookingRemoved(true);
+      props.reloadBookings()
+    }
 
     useEffect(() => {
       props.reloadBookings();
@@ -218,11 +221,16 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
          
         }, [showBookingForm])
 
-    if (!booking) {
-      return <div>Booking not found</div>;
-    }
+        
+
+
     return (
+
+      <section>
+        {bookingRemoved ? <BookingRemoved></BookingRemoved> :
       <div className="bookingDetailsContainer">
+
+    
         <div className="titleContainer"><h3>Configure Booking</h3></div>
         <div className="bookingDetailsInfo"><h3> Booking Details</h3>
         
@@ -309,13 +317,16 @@ export const AdminDetails= (props: IAdminDetailsProps)=>{
         </div>
         <div className="buttonContainer">
         <Link to="/admin"> <Button border="" color="#C67B47" width="250px" textColor="white" onClick={props.reloadBookings}>All bookings</Button></Link> 
-    <Link to="/admin">   <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
+     <Button border="" color="#C67B47" width="250px" textColor="white" onClick={()=>{ console.log("Booking" ,booking._id ,"removed");
                 axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
                 props.removeBooking(bookingId as string);
-                props.bookingRemoved();
-                }}>Remove booking</Button>  </Link> 
+                handleBookingRemove();
+                }}>Remove booking</Button>  
                 
                 </div>
+            
       </div>
+      }
+      </section>
     );
   }
