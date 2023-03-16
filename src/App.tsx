@@ -9,14 +9,9 @@ import { Nav } from './components/Nav/Nav';
 import { Footer } from './components/Footer/Footer';
 import { fetchBookings, IBooking } from './Services/fetchBookings';
 import { AdminDetails } from './components/AdminDetails/AdminDetails';
-import { BookingConfirmation } from './components/BookingConfirmation/BookingConfirmation';
-import { toast, ToastContainer } from 'react-toastify';
 
 
-interface IBookingsContext {
-  removeBooking() : void,
-  bookings:IBooking[]
-}
+
 
 
 const apiId = "64088bb976187b915f68e167";
@@ -48,7 +43,6 @@ function App() {
        localStorage.setItem("bookings", JSON.stringify(bookingsFromApi))
     }
     getBookings();
-    console.log("IT works!")
  }, [reloadBookingsTrigger])
 
 
@@ -69,7 +63,6 @@ function App() {
       </div>
       <Footer></Footer>
     </BrowserRouter>
-    <ToastContainer></ToastContainer>
     </BookingsContext.Provider>
    
   );

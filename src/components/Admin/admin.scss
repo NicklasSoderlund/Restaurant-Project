@@ -1,8 +1,16 @@
 
 .BookingsContainer{
+
     @media screen and (max-width: 900px) {
         margin-top:150px;
      }
+
+    
+    a {
+        color: inherit; 
+        text-decoration: inherit;
+      }
+
     .titleContainer{
         width: 100%;
         h3{
@@ -26,7 +34,7 @@ flex-wrap: wrap;
 width:100%;
 gap:10px;
 justify-content: center;
-margin: 7em 0 2.5em 0;
+margin: 5em 0 2.5em 0;
 
 }
 .filters {

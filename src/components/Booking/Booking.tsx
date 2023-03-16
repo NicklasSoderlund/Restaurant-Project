@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, redirect } from 'react-router-dom';
 import { BookingsContext } from '../../App';
 import { createBooking } from '../../Services/createBookings';
-import { fetchBookings, IBooking } from '../../Services/fetchBookings';
 import { BookingConfirmation } from '../BookingConfirmation/BookingConfirmation';
 import { Button } from '../styled/Button';
 import './booking.scss';
@@ -10,9 +9,7 @@ import steakVideo from './Assets/steakVideo.mp4';
 import axios from 'axios';
 import { CancelBookingConfirmation } from '../CancelBookingConformation/CancelBookingConfirmation';
 
-// interface BookingFormProps {}
 
-// function BookingForm(props: BookingFormProps): JSX.Element
 interface IBookingProps {
   removeBooking(bookingId:string): void,
   reloadBookings():void
