@@ -109,11 +109,8 @@ button{
     width: 100%;
     z-index: -1;
     opacity: 20%;
-    @media screen and (max-width: 999px) {
+    @media screen and (max-width: 1550px) {
       display:none;
-   }
-   @media screen and (min-width: 1000px) {
-      display:block;
    }
 }
 
