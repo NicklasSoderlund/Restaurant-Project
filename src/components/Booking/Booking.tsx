@@ -185,6 +185,7 @@ function handleCancelation(event: React.FormEvent<HTMLFormElement>) {
    
       {tableAvailable}
       <br></br>
+   <div className='agreedContainer'> <label htmlFor='agreed' className='agreedlabel'>I agree to having my personal data stored</label> <input id='agreed' type="checkbox" className='agreedcheckbox' required/>  </div> 
     <button id='bookingSubmitButton' type="submit">Book a table</button> 
     </form>
     </div>
