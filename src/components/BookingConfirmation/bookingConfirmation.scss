@@ -1,0 +1,21 @@
+.bookingConfirmation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    border: 1px solid white;
+    padding: 2em;
+    text-align: center;
+    align-items: center;
+
+    @media screen and (max-width: 720px) {
+        margin-top: 20px;
+        
+      }
+
+
+    h4 {
+        margin: 0;
+    }
+}
+
+

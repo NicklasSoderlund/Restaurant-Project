@@ -1,0 +1,162 @@
+.Booking {
+  color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+       height: fit-content;
+      padding-top: 25%;
+    }
+    h2 {
+      color: #C67B47;
+      font-size: 2.5em;
+      margin: 0 0 0.7em 0;
+      @media screen and (max-width: 900px) {
+        font-size: 2em;
+    }
+    }
+    h3 {
+      color: #C67B47;
+      width: 80%;
+      margin: 1.5em auto;
+      
+    }
+}
+.FormContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    
+      
+      input {
+              text-align: center;
+              padding: 1em 0;
+              color: white;
+              background-color: black;
+              border: 1px solid #C67B47;
+              color-scheme: dark;
+              width: 100%;
+              margin: 1px;
+              &::placeholder {
+                  font-weight: bold;
+                  color: white;
+                
+              }
+          }
+          }
+  }
+
+button{
+  padding:8px 48px;
+  background-color: #C67B47;
+  border:2px solid transparent;
+  box-sizing: border-box;
+  font-weight:400;
+  color:white;
+  text-align:center;
+  border-radius: 20px;
+  
+  }
+  button:hover{
+  color:#DDDDDD;
+  border-color:#DDDDDD;
+  cursor:pointer;
+  }
+  button:disabled{
+    background-color: grey;
+  }
+  button:disabled:hover {
+    border-color: grey;
+    color: white;
+  }
+  .timeContainer {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+  #numPeople {
+      margin: 10px;
+  }
+
+  .tableAvailable {
+    color: green;
+    text-align: center;
+    border: 2px solid green;
+    padding: 5px;
+    font-weight: bold;
+  }
+  .tableNotAvailable {
+    color: red;
+    text-align: center;
+    border: 2px solid red;
+    padding: 5px;
+    font-weight: bold;
+  }
+  .bookingVideoContainer {
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 20%;
+    video {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+    @media screen and (max-width: 900px) {
+       display:none;
+   }
+}
+
+.cancelBooking {
+
+  .cancelBookingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+
+
+    p {
+      margin-top: 0;
+      margin-bottom: 2em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap:1em;
+    }
+
+    .bookingNotFound {
+      color: red;
+      font-weight: bold;
+    }
+  }
+}
+
+.fiftyPercent {
+  width: 50%;
+//  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: unset;
+  @media screen and (max-width: 900px) {
+    width: 80%;
+  margin-bottom: 15%;
+}
+}

@@ -1,0 +1,126 @@
+
+
+.contact {
+
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+
+    @media screen and (max-width: 720px) {
+        
+        height: fit-content;
+        padding-top: 15vh;
+        padding-bottom: 5vh;
+      }
+
+    .colorClass {
+        color: #C67B47;
+    }
+
+    .contact__content {
+        width: fit-content;
+        text-align: center;
+    }
+
+    h3 {
+        font-size: 2.5em;
+        margin: 0 0 0.7em 0;
+        @media screen and (max-width: 720px) {
+            font-size: 2em;
+        }
+       
+    }
+
+    .contact__content__adress {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4em;
+        padding-bottom: 1em;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .contact__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        
+
+    }
+
+    
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+        .form__content {
+            display: flex;
+            gap:0.4em;
+            margin: 1em 0;
+            @media screen and (max-width: 720px) {
+                flex-direction: column;
+                align-content: center;
+                
+              }
+            
+        }
+
+        .form__inputs {
+            display: flex;
+            flex-direction: column;
+            width: 295px;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        input {
+            text-align: center;
+            padding: 1em 0;
+            color: white;
+            background-color: black;
+            border: 1px solid #C67B47;
+            &::placeholder {
+                font-weight: bold;
+                color: white;
+              
+            }
+        }
+
+        textarea {
+            resize: none;
+            text-align: center;
+            background-color: black;
+            border: 1px solid #C67B47;
+            color: white;
+            width: 290px;
+            &::placeholder {
+                font-weight: bold;
+                color: white;
+                
+            }
+        }
+    }
+}
+
+.contactVideoContainer {
+    position: absolute;
+    top:0;
+    z-index: -1;
+    opacity: 15%;
+height: 100%;
+width: 100%;
+
+    .contactVideo {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}

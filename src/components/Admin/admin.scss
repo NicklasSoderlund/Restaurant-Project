@@ -1,0 +1,144 @@
+
+.BookingsContainer{
+
+    @media screen and (max-width: 900px) {
+        margin-top:100px;
+     }
+
+    
+    a {
+        color: inherit; 
+        text-decoration: inherit;
+      }
+
+    .titleContainer{
+        width: 100%;
+        h3{
+            text-align: center;
+        }
+    }
+    .bookingLink{
+        width:20%;
+        @media screen and (max-width: 720px) {
+            width:80%;
+         }
+         @media screen and (min-width: 721px) {
+            width:30%;
+         }
+         @media screen and (min-width: 1000px) {
+            width:20%;
+         }
+    }
+display:flex;
+flex-wrap: wrap;
+width:100%;
+gap:10px;
+justify-content: center;
+margin: 6em 0 2em 0;
+
+}
+.filters {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0.7em;
+    @media screen and (max-width: 720px) {
+    margin-top:50px;
+    flex-wrap: wrap;
+    gap:5px;
+    }
+    @media screen and (max-width: 1200px) {
+        gap:10px;
+        margin:20px;
+        flex-wrap: wrap;
+    }
+
+    label {
+        margin-right: 5px;
+        display: flex;
+        align-items: center;
+        @media screen and (max-width: 720px) {
+            
+            }
+    }
+    button {
+        margin-left: 25px;
+        @media screen and (max-width: 720px) {
+    }
+
+    }
+}
+.bookingcontainer{
+    display: flex;
+    flex-direction: column;
+    height:250px;
+    align-items: center;
+    justify-content: center;
+    background-color: #1c1b1b;
+    font-size: 15px;
+    padding:15px;
+    border: 1px solid white;
+    text-align: center;
+
+.hPDiQK {
+    @media screen and (max-width: 720px) {
+        width:250px;
+     }
+     @media screen and (min-width: 721px) {
+        width:200px;
+     }
+     @media screen and (min-width: 1000px) {
+     }
+}
+
+}
+
+.bookingcontainer:hover {
+    cursor: pointer;
+   }
+   input {
+    text-align: center;
+    padding: 1em 0;
+    color: white;
+    background-color: black;
+    border: 1px solid #C67B47;
+    width: 100%;
+    margin: 3px;
+    color-scheme: dark;
+    &::placeholder {
+        font-weight: bold;
+        color: white;
+      
+    }
+}
+
+.time {
+    display: flex;
+    @media screen and (max-width: 720px) {
+        flex-wrap: wrap;
+        width:100%;
+        justify-content: center;
+        gap:5px;
+    }
+    button{
+        @media screen and (max-width: 720px) {
+        margin:0;
+        }
+    }
+}
+
+.bookingIdTitle {
+   display: flex;
+   flex-direction: column;
+   gap:0.5em;
+   @media screen and (max-width: 720px) {
+    font-size:20px;
+    }
+   @media screen and (min-width: 725px) {
+    font-size:12px;
+    }
+    @media screen and (min-width: 1500px) {
+    font-size:18px;
+    }
+}

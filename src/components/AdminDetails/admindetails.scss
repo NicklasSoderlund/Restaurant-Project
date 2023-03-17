@@ -1,0 +1,221 @@
+
+.bookingDetailsContainer {
+    display:flex;
+    width:100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top:150px;
+    
+    
+    .titleContainer{
+        width:100%;
+        h3{
+            text-align: center;
+        }
+    }
+
+    .bookingDetailsInfo{
+        h3{
+            text-align: center;
+        }
+        height: fit-content;
+        margin:15px;
+        width: 40%;
+        border:1px solid grey;
+        padding:15px;
+        @media screen and (max-width: 720px) {
+            width:100%;
+        }
+        .updateBookingButtonContainer{
+            display:flex;
+            justify-content: center;
+            button{
+            @media screen and (max-width: 720px) {
+            width:80%;
+            }
+        }
+        }
+        .updateBookingContainer{
+            min-height: 423px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            form{
+                margin:15px;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                width:100%;
+                flex-wrap: wrap;
+                gap:5px;
+                @media screen and (max-width: 720px) {
+                margin:0;
+                }
+
+                
+                #date{
+                    width: 210px;
+                    height: 50px;
+                    padding: 0 16px;
+                    background: transparent;
+                    border-radius: 4px;
+                    border: 1px solid #C67B47;
+                    color: #f9f9f9;
+                    color-scheme: dark;
+                    @media screen and (max-width: 720px) {
+                        margin:0;
+                        }
+                }
+
+                #time1, #time2{
+                    color: #C67B47;
+                    color-scheme: dark;
+                }
+                #numPeople{
+                    width: 210px;
+                    height: 50px;
+                    padding: 0 16px;
+                    background: transparent;
+                    border-radius: 4px;
+                    border: 1px solid #C67B47;
+                    color: #f9f9f9;
+                    color-scheme: dark;
+                }
+                .seatingContainer{
+                    gap:15px;
+                }
+            .buttonContainerBookingForm{
+                margin:15px;
+                gap:15px;
+                display: flex;
+                flex-direction: row;
+                @media screen and (max-width: 720px) {
+                    flex-direction: column;
+                    }
+                    @media screen and (max-width: 1200px) {
+                        flex-direction: column;
+                        }
+            }
+            }
+        }
+
+    }
+    .bookingDetailsCustomer{
+        h3{
+            text-align: center;
+        }
+        height: fit-content;
+        margin:15px;
+        width:40%;
+        border:1px solid grey;
+        padding:15px;
+        height: fit-content;
+        @media screen and (max-width: 720px) {
+            width:100%;
+        }
+
+    }
+    .buttonContainer{
+        display: flex;
+        justify-content: center;
+        width:100%;
+        padding:50px;
+        gap:30px;
+        @media screen and (max-width: 720px) {
+            flex-direction: column;
+            align-items: center;
+            padding:25px;
+        }
+    }
+    .updateCustomerButtonContainer{
+        display:flex;
+        justify-content: center;
+        button{
+            @media screen and (max-width: 720px) {
+            width:80%;
+            }
+        }
+
+    }
+    .updateCustomerContainer{
+        display: flex;
+        justify-content: center;
+        width:100%;
+        
+        form{
+            margin:15px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            width:100%;
+            flex-wrap: wrap;
+            gap:5px;
+            input{
+                width: 210px;
+                height: 50px;
+                padding: 0 16px;
+                background: transparent;
+                border-radius: 4px;
+                border: 1px solid #C67B47;
+                color: #f9f9f9;
+                color-scheme: dark;
+            }
+            .buttonContainerCustomerForm{
+            margin:15px;
+            gap:15px;
+            display: flex;
+            flex-direction: row;
+            @media screen and (max-width: 720px) {
+                flex-direction: column;
+                }
+                @media screen and (max-width: 1200px) {
+                    flex-direction: column;
+                    }
+        }    
+        }
+        
+    }
+}        
+
+.confirmation{
+    color:green;  
+text-align: center;
+}
+
+
+.loadingContainer{
+    display:flex;
+    justify-content: center;
+   .lds-dual-ring {
+    
+    display: block;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+    
+  }
+}
+  
+  .firstRadio {
+    display: flex;
+    align-items: center;
+}
